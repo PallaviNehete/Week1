@@ -5,6 +5,13 @@
  */
 
 package com.bridgelabz.utility;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 public class Utility 
 {
@@ -236,6 +243,48 @@ public class Utility
 		if(low>high)
 		{
 			System.out.println("String not found");
+		}
+	}
+	
+	public String readFromFile(File file) throws IOException
+	{
+		String readString="";
+		String temp;
+		FileReader ip = new FileReader(file);
+		BufferedReader br =new BufferedReader(ip);
+		while((temp=br.readLine())!=null)
+		{
+			readString = readString + temp;
+		}
+		return readString;
+	}
+	
+	public String writeIntoFile(String search) throws IOException
+	{
+		File file = new File("/home/admin1/ReadWrite/demo.txt");
+		FileWriter fileWriter = new FileWriter(file.getAbsoluteFile(), true);   
+		fileWriter.write(search);
+		fileWriter.close();
+		return null;
+	}
+	
+	public void appendFile(String search) throws IOException
+	{
+		FileWriter fw = null;
+        BufferedWriter bw = null;
+        PrintWriter pw = null;
+        try 
+        {
+            fw = new FileWriter("/home/admin1/ReadWrite/demo.txt", true);
+            bw = new BufferedWriter(fw);
+            pw = new PrintWriter(bw);
+            pw.println(search);
+            System.out.println("Data Successfully appended into file");
+            pw.flush();
+        } 
+        catch (Exception e) 
+        {
+			e.printStackTrace();
 		}
 	}
 }

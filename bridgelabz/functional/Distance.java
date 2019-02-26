@@ -10,11 +10,11 @@ public class Distance
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter the distance of x from Origin: ");
-		double x = u.inputDouble();
+		double x = utility.inputDouble();
 		System.out.print("Enter the distance of y from Origin: ");
-		double y = u.inputDouble();
+		double y = utility.inputDouble();
 		System.out.println("\nEuclidean Distance from the point ("+x+","+y+") to origin (0,0) is: "+Math.sqrt(x*x+y*y));
 	}
 }

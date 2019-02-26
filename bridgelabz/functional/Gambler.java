@@ -12,14 +12,14 @@ public class Gambler
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
-		int goal,stake,trials,bets=0,win=0;
+		Utility utility = new Utility();
+		int goal, stake, trials, bets=0, win=0;
 		System.out.print("Enter no of stake: ");
-		stake = u.inputInteger();
+		stake = utility.inputInteger();
 		System.out.print("Enter Excpecting goal: ");
-		goal = u.inputInteger();
+		goal = utility.inputInteger();
 		System.out.print("Enter Number of Trails: ");
-		trials = u.inputInteger();
+		trials = utility.inputInteger();
 		for (int i=0; i<trials; i++) 
 		{
 			int cash = stake;
@@ -40,9 +40,9 @@ public class Gambler
 				win++;
 			}
 		}
-		double perc = 100.0*win/trials;
+		double percentage = 100.0*win/trials;
 		System.out.println(win+ " wins of "+trials+" trials");
-		System.out.println("Percent of games won: " +perc);
-		System.out.println("Percent of games loss: "+(100-perc));
+		System.out.println("Percent of games won: " +percentage);
+		System.out.println("Percent of games loss: "+(100-percentage));
 	}
 }

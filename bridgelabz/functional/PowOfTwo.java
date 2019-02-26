@@ -10,19 +10,19 @@ public class PowOfTwo
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter number which you want to find power of 2: ");
-		int num = u.inputInteger();
+		int number = utility.inputInteger();
 		int power = 1;
-		if((num < 31) && (num >= 0))
+		if((number < 31) && (number >= 0))
 		{
-			if(num == 0)
+			if(number == 0)
 			{
-				System.out.println("2 to the power "+num+" is: "+power);
+				System.out.println("2 to the power "+number+" is: "+power);
 			}
 			else
 			{
-				for(int i=0; i<=num; i++)
+				for(int i=0; i<=number; i++)
 				{
 					power= power*2;
 					System.out.println("2 to the power "+i+" is: "+power);

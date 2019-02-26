@@ -11,10 +11,10 @@ public class Banking
 {
 	public static void main(String[] args) 
 	{
-		int depo=0,bal=0;
+		int deposite = 0, balance = 0;
 		String check;
-		Utility u=new Utility();
-		QueueClass q=new QueueClass();
+		Utility utility = new Utility();
+		QueueClass queue = new QueueClass();
 		do
 		{
 			System.out.println("\n\t~~~~~ BANKING CASH COUNTER ~~~~~");
@@ -24,16 +24,16 @@ public class Banking
 			System.out.println("3.Number of people in the Queue ");
 			System.out.println("4.Exit\n");
 			System.out.print("Enter Your Choice: ");
-			int ch=u.inputInteger();
-			switch(ch)
+			int choice = utility.inputInteger();
+			switch(choice)
 			{
 			case 1:
 				System.out.print("Enter Amount you want to deposit: ");
-				depo=u.inputInteger();
-				if(depo>0)
+				deposite = utility.inputInteger();
+				if(deposite > 0)
 				{
-					q.Enqueue(depo);
-					System.out.println("You deposeted "+depo+" in Bank");
+					queue.Enqueue(deposite);
+					System.out.println("You deposeted "+deposite+" in Bank");
 				}
 				else
 				{
@@ -42,15 +42,15 @@ public class Banking
 				break;
 			case 2:
 				System.out.print("Enter Amount you want to withdraw: ");
-				int withd=u.inputInteger();
-				if(withd>0)
+				int withdraw = utility.inputInteger();
+				if(withdraw > 0)
 				{
-					if(depo>=withd)
+					if(deposite >= withdraw)
 					{
-						q.Dequeue(withd);
-						System.out.println("You withdraw "+withd+" from Bank");
-						bal=depo-withd;
-						System.out.println("Your current balance is: "+bal);
+						queue.Dequeue(withdraw);
+						System.out.println("You withdraw "+withdraw+" from Bank");
+						balance = deposite-withdraw;
+						System.out.println("Your current balance is: "+balance);
 					}
 					else
 					{
@@ -63,7 +63,7 @@ public class Banking
 				}
 				break;
 			case 3:
-				q.countPrint();
+				queue.countPrint();
 				break;
 			case 4:
 				System.out.println("EXIT");
@@ -75,7 +75,7 @@ public class Banking
 			}
 			System.out.println("\n*Do you want to continue? ");
 			System.out.println("(type yes if you want to continue)");
-			check=u.inputString();
+			check=utility.inputString();
 			System.out.println("\n============================================");
 		}
 		while(check.compareToIgnoreCase("yes")==0);

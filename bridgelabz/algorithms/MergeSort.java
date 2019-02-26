@@ -10,15 +10,15 @@ public class MergeSort
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter Size of Array: ");
-		int size = u.inputInteger();
+		int size = utility.inputInteger();
 		int arr[] = new int [size]; 
-		u.InsertInArrayInt(arr);
+		utility.InsertInArrayInt(arr);
 		MergeSort ms = new MergeSort(); 
 		ms.sort(arr, 0, arr.length-1);
 		System.out.println("\nSorted array: "); 
-		u.printIntArr(arr); 	
+		utility.printIntArr(arr); 	
 	}
 	void merge(int arr[], int low, int mid, int high) 
 	{  

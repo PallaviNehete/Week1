@@ -10,24 +10,24 @@ public class Binary
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter the Number: ");
-		int num = u.inputInteger();	
-		String binary = toBinary(num);
-		System.out.println("\nBinary Representation of "+num+" is "+binary);
+		int number = utility.inputInteger();	
+		String binary = toBinary(number);
+		System.out.println("\nBinary Representation of "+number+" is "+binary);
 	}
-	public static String toBinary(int num)
+	public static String toBinary(int number)
 	{
-		String bin="";
-		while(num>0)
+		String binary="";
+		while(number>0)
 		{
-			bin = (num%2)+bin;
-			num = num/2;
+			binary = (number%2)+binary;
+			number = number/2;
 		}
-		while(bin.length()<4)
+		while(binary.length()<4)
 		{
-			bin = 0+bin;
+			binary = 0+binary;
 		}
-		return bin;	
+		return binary;	
 	}
 }

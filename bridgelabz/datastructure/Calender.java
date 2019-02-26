@@ -10,7 +10,7 @@ public class Calender
 	Utility u=new Utility();
 	public static void main(String[] args) 
 	{
-		Calender c=new Calender();
+		Calender c = new Calender();
 		c.calender();
 	}
 	public void calender()

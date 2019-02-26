@@ -10,13 +10,13 @@ public class MonthlyPayment
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter principal amount:");
-		double payment = u.inputDouble();
+		double payment = utility.inputDouble();
 		System.out.print("Enter Year: ");
-		double year = u.inputDouble();
+		double year = utility.inputDouble();
 		System.out.print("Enter Rate: ");
-		double rate = u.inputDouble();
+		double rate = utility.inputDouble();
 		System.out.print("Your Mothly Payment is: "+monthPayment(payment,year,rate));
 	}
 	public static double monthPayment(double p, double y, double r)

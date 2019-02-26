@@ -8,32 +8,30 @@
 package com.bridgelabz.algorithms;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Arrays;
-
 import com.bridgelabz.utility.Utility;
 public class BinarySearchFile 
 {
 	public static void main(String[] args) throws IOException 
 	{
-		String s = "";
+		String string = "";
 		StringBuffer sb = new StringBuffer();
-		Utility u = new Utility();
-		FileInputStream ip = new FileInputStream("/home/admin1/demo.txt");
+		Utility utility = new Utility();
+		FileInputStream ip = new FileInputStream("/home/admin1/ReadWrite/demo.txt");
 		int i = 0;
 		while((i = ip.read())!=-1)
 		{
 			char ch = (char)i;
-			s = Character.toString(ch);
-			sb = sb.append(s);
+			string = Character.toString(ch);
+			sb = sb.append(string);
 		}
 		System.out.println(sb);	
 		String s1 = sb.toString();
-		String a[] = s1.split(",");
-		u.InsertionSortString(a);
+		String array[] = s1.split(",");
+		utility.InsertionSortString(array);
 		System.out.println("Sorted String: ");
-		u.printIntString(a);
+		utility.printIntString(array);
 		System.out.print("Enter the word: ");
-		String search = u.inputString();
-		u.BinarySearchString(a, search);
+		String search = utility.inputString();
+		utility.BinarySearchString(array, search);
 	}
 }

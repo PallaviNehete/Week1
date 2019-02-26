@@ -10,26 +10,21 @@ public class Factor
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter Number to find all Prime Factors: ");
-		int num = u.inputInteger();
+		int number = utility.inputInteger();
 		System.out.println("Prime Factors is:- ");
-		while(num%2 == 0)
+		for(int i=2; i<=number; i++)
 		{
-			System.out.println("2");
-			num = num/2;
-		}
-		for(int i=3; i<=Math.sqrt(num); i++)
-		{
-			while(num%i == 0)
+			while(number%i == 0)
 			{
-				System.out.print(i+",");
-				num = num/i;
+				System.out.println(i);
+				number = number/i;	
 			}
 		}
-		if(num>2)
+		if(number>2)
 		{
-			System.out.print(num);
+			System.out.println(number);
 		}
 	}
 }

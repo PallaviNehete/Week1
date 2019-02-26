@@ -10,10 +10,10 @@ public class Stopwatch
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
-		long start = 0,stop = 0, diff = 0;
+		Utility utility = new Utility();
+		long start = 0,stop = 0, difference = 0;
 		System.out.print("Enter 1 if you want to start stopwatch: ");
-		int srt = u.inputInteger();
+		int srt = utility.inputInteger();
 		if(srt == 1)
 		{
 			start = System.currentTimeMillis();
@@ -25,13 +25,13 @@ public class Stopwatch
 		
 		}
 		System.out.print("Enter 2 if you want to stop stopwatch: ");
-		int stp = u.inputInteger();
+		int stp = utility.inputInteger();
 		if(stp == 2)
 		{
 			stop = System.currentTimeMillis();
 			System.out.println("Ending Time: "+stop);
 		}
-		diff = stop-start;
-		System.out.println("\nElapsed Time:"+diff);
+		difference = stop-start;
+		System.out.println("\nElapsed Time:"+difference);
 	} 
 }

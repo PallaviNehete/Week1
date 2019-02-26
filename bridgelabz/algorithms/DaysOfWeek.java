@@ -10,22 +10,22 @@ public class DaysOfWeek
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		int date,month,year;
 		do
 		{
 			System.out.print("Enter Year: ");
-			year = u.inputInteger();
+			year = utility.inputInteger();
 		}while(!(year>999 && year<9999));
 		do
 		{
 			System.out.print("Enter Month: ");
-			month = u.inputInteger();
+			month = utility.inputInteger();
 		}while(!(month>0 && month<13));
 		do 
 		{
 			System.out.print("Enter Date: ");		
-			date = u.inputInteger();
+			date = utility.inputInteger();
 		}while(!(date>0 && date<32));
 		DaysOfWeek.dayWeek(year, month, date);
 	}

@@ -5,23 +5,23 @@ public class BalancedParentheses
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter Maximum Size: ");
-		int size = u.inputInteger();
+		int size = utility.inputInteger();
 		StackClass stack = new StackClass(size); 
-		int push = 0,pop = 0;
+		int push = 0, pop = 0;
 		System.out.println("Enter the Expression: ");
-		String e = u.inputString();
-		for(int i = 0; i < e.length(); i++)
+		String expression = utility.inputString();
+		for(int i = 0; i < expression.length(); i++)
 		{
-			char ch = e.charAt(i);
-			if(ch =='(')
+			char character = expression.charAt(i);
+			if(character =='(')
 			{
 				stack.push(i);
 				System.out.println("'(' pushed at index ");
 				push++;
 			}
-			else if(ch ==')')
+			else if(character ==')')
 			{
 				int p = stack.pop()+1;
 				System.out.println("')' poped at index "+i);

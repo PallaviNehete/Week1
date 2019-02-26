@@ -9,14 +9,14 @@ public class CouponNumbers
 {
 	public static void main(String[] args) 
 	{
-		char ch[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".toCharArray();
+		char array[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".toCharArray();
 		int max = 100000000;
-		int r = (int)(Math.random()*max);
+		int random = (int)(Math.random()*max);
 		StringBuffer s = new StringBuffer();
-		while(r>0)
+		while(random>0)
 		{
-			s.append(ch[r % ch.length]);
-			r = r/ch.length;
+			s.append(array[random % array.length]);
+			random = random/array.length;
 		}
 		String couponNo = s.toString();
 		System.out.println("Coupon Number is: "+couponNo);

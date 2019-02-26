@@ -10,6 +10,7 @@ import java.util.Scanner;
 import com.bridgelabz.utility.Utility;
 public class TwoDArray 
 {
+	static Utility u = new Utility();
 	Scanner sc = new Scanner(System.in);
 	public static void main(String[] args)
 	{
@@ -23,21 +24,22 @@ public class TwoDArray
 		System.out.println("*2D Array of Boolean*");
 		arr.boll2DArr();
 	}	
+	
 	// Method to print 2D Array of Integers.
 	public void Int2DArr()
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter the number of rows: ");
-		int row = u.inputInteger();
+		int row = utility.inputInteger();
 		System.out.print("Enter the number of columns: ");
-		int column = u.inputInteger();
+		int column = utility.inputInteger();
 		int matrix[][] = new int[row][column];
 		for(int i=0; i<row; i++)
 		{
 			for(int j=0; j<column; j++)
 			{
 				System.out.print("Row ["+i+"] column ["+j+"] ");
-				matrix [i][j] = sc.nextInt();
+				matrix [i][j] = utility.inputInteger();
 			}
 		}
 		System.out.println();
@@ -51,10 +53,10 @@ public class TwoDArray
 			System.out.println();
 		}
 	}
+	
 	// Method to print 2D Array of Doubles.
 	public void Doub2DArr()
 	{
-		Utility u = new Utility();
 		System.out.print("Enter the number of rows: ");
 		int row = u.inputInteger();
 		System.out.print("Enter the number of columns: ");
@@ -66,7 +68,7 @@ public class TwoDArray
 			{
 
 				System.out.print("Row ["+i+"] column ["+j+"] ");
-				matrix [i][j] = sc.nextDouble();
+				matrix [i][j] = u.inputInteger();
 			}
 		}
 		System.out.println();
@@ -80,6 +82,7 @@ public class TwoDArray
 			System.out.println();
 		}
 	}
+	
 	// Method to print 2D Array of Boolean.
 	public void boll2DArr()
 	{

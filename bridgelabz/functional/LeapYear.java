@@ -10,13 +10,13 @@ public class LeapYear
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		boolean flag = false;
 		System.out.print("Enter Year: ");
-		int year = u.inputInteger();
+		int year = utility.inputInteger();
 		if((year <= 9999) || (year > 999))
 		{
-			flag = u.isLeapYear(year);
+			flag = utility.isLeapYear(year);
 			if(flag)
 			{
 				System.out.println(year+" is Leap Year");
@@ -28,7 +28,7 @@ public class LeapYear
 		}
 		else
 		{
-			System.out.println("Please Enter right year");
+			System.out.println("*Please Enter valid year");
 		}
 	}
 }

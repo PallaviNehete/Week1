@@ -10,12 +10,12 @@ public class FlipCoin
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter Number of Times You Want to Flip Coin: ");
-		int noOfToss = u.inputInteger();
+		int noOfToss = utility.inputInteger();
 		double noOfHeads = Math.random();
 		double noOfTails = Math.random();
-		double percHead = 0,percTail=0;
+		double percHead = 0, percTail=0;
 		if(noOfToss > 0)
 		{
 			if(noOfTails < 0.5)

@@ -10,11 +10,11 @@ public class Username
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
-		String str = "Hello <<username>>, How are You??";
-		System.out.println("Original String is: "+str);
+		Utility utility = new Utility();
+		String string = "Hello <<username>>, How are You??";
+		System.out.println("Original String is: "+string);
 		System.out.print("\nEnter Username: ");
-		String uName = u.inputString();
+		String uName = utility.inputString();
 		if(uName.length() <= 3)
 		{
 			System.out.print("Please Enter Full Name");

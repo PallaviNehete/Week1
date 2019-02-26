@@ -1,7 +1,5 @@
 package com.bridgelabz.datastructure;
-
 import java.util.Scanner;
-
 public class DequeClass 
 {
 	static int  max=100;
@@ -102,7 +100,7 @@ public class DequeClass
 				int index=(front+i) % size; // Index of element while travesing circularly from front
 				System.out.println(arr[i]);
 			}
-			//System.out.println(count+" Peoples are in queue.");
+			System.out.println("Count is: "+count);
 		}
 		else
 		{
@@ -112,17 +110,17 @@ public class DequeClass
 	public static void main(String[] args) 
 	{
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter Size of Array: ");
+		System.out.print("Enter Size of Array: ");
 		int size = sc.nextInt();
 		DequeClass dc=new DequeClass(size);
-		System.out.println(dc.isEmpty());
-		System.out.println(dc.isFull());
-		dc.insertFront(1);
-		dc.insertFront(3);
-		dc.insertFront(2);
-		dc.deleteRear();
-		dc.deleteFront();
+		//System.out.println(dc.isEmpty());
+		//System.out.println(dc.isFull());
+		dc.insertFront(8);
+		dc.insertFront(5);
+		dc.insertFront(6);
+		
+		//dc.deleteRear();
+		//dc.deleteFront();
 		dc.countPrint();
 	}
-	
 }

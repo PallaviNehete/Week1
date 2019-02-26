@@ -10,19 +10,19 @@ public class HarmonicNumber
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter the number that you want to print harmonic series: ");
-		int num = u.inputInteger();
+		int num = utility.inputInteger();
 		int temp = num;
-		double hs = 0;
+		double harmonic = 0;
 		if(num > 0)
 		{
 			while(num > 0)
 			{
-				hs = hs+(double)1/num;
+				harmonic = harmonic+(double)1/num;
 				num--;	
 			}
-			System.out.print("\n"+temp+"th Harmonic number is: "+hs);
+			System.out.println("\n"+temp+"th Harmonic number is: "+harmonic);
 		}
 		else
 		{

@@ -11,9 +11,9 @@ public class VendingMachine
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter The Amount: ");
-		int amount = u.inputInteger();
+		int amount = utility.inputInteger();
 		VendingMachine.countNotes(amount);
 	}
 	public static void countNotes(int amount)

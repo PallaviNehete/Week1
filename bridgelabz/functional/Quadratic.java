@@ -10,16 +10,16 @@ public class Quadratic
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
-		int a,b,c,delta;
+		Utility utility = new Utility();
+		int a, b, c, delta;
 		double rootX1,rootX2;
 		System.out.println("To Finding Roots of Quadratic Equation (a*x*x+b*x+c=0)  ");
 		System.out.print("Enter value of a: ");
-		a = u.inputInteger();
+		a = utility.inputInteger();
 		System.out.print("Enter value of b: ");
-		b = u.inputInteger();
+		b = utility.inputInteger();
 		System.out.print("Enter value of c: ");
-		c = u.inputInteger();
+		c = utility.inputInteger();
 		delta = b*b-4*a*c;
 		System.out.println("Value of Delta: "+delta);
 		if(delta >= 0)

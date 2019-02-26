@@ -10,9 +10,9 @@ public class FindQuesNo
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter any Number: ");
-		int num = u.inputInteger();
+		int num = utility.inputInteger();
 		int N = (int) Math.pow(2, num);
 		int low=0, high=N-1, mid=0;
 		System.out.println("Your Number is present in Between "+low+" to "+high);
@@ -30,12 +30,12 @@ public class FindQuesNo
 	}
 	public int QNo(int num,int low,int high, int mid)
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		while(low<high)
 		{
 			System.out.println("Is number is between "+low+" to "+high+"?");
 			System.out.print("If yes then type TRUE otherwise FALSE :");
-			String check = u.inputString();
+			String check = utility.inputString();
 			System.out.println();
 			if(check.equalsIgnoreCase("true"))
 			{

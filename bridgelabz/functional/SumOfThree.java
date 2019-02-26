@@ -10,16 +10,16 @@ public class SumOfThree
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter size of array: ");
-		int size = u.inputInteger();
-		int a[] = new int[size];
+		int size = utility.inputInteger();
+		int array[] = new int[size];
 		System.out.println("Enter Elements of Array: ");
-		for(int d=0; d<a.length; d++)
+		for(int i=0; i<array.length; i++)
 		{
-			a[d] = u.inputInteger();
+			array[i] = utility.inputInteger();
 		}
-		int noOfTriplets = threeInteger(a,size);
+		int noOfTriplets = threeInteger(array,size);
 		if(noOfTriplets > 0)
 		{
 			System.out.println("Number of Triplets: "+noOfTriplets);

@@ -10,14 +10,14 @@ public class InsertionSort
 {
 	public static void main(String[] args) 	
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter Size of Array: ");
-		int size = u.inputInteger();
+		int size = utility.inputInteger();
 		String array[] = new String[size];
 		System.out.println("Enter Elements of Array: ");
-		u.InsertInArrayString(array);
-		u.InsertionSortString(array);
+		utility.InsertInArrayString(array);
+		utility.InsertionSortString(array);
         System.out.println("\nSorted Array: ");
-        u.printIntString(array);
+        utility.printIntString(array);
 	}	
 }

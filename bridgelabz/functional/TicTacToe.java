@@ -9,11 +9,11 @@ import java.util.Random;
 import com.bridgelabz.utility.Utility;
 public class TicTacToe 
 {
-	Utility u = new Utility();
+	Utility utility = new Utility();
 	Random rd = new Random(3);
-	private static final String Board[][] = new String [3][3];
-	static boolean flag = true;
-	static String check = "";
+	final String Board[][] = new String [3][3];
+	boolean flag = true;
+	String check = "";
 	static TicTacToe t = new TicTacToe();
 	public static void main(String[] args) 
 	{
@@ -69,7 +69,7 @@ public class TicTacToe
 			System.out.println("\nWell Played\nComputer win...");
 			System.out.println("\n*Do you want to play Again?");
 			System.out.println("(Type yes if you want to play)");
-			check = u.inputString();
+			check = utility.inputString();
 			if(check!= "no")
 			{
 				play();
@@ -88,7 +88,7 @@ public class TicTacToe
 			System.out.println("\nWell Played\nCongratulations...You win...");
 			System.out.println("\n*Do you want to play Again?");
 			System.out.println("(Type yes if you want to play)");
-			check= u.inputString();
+			check= utility.inputString();
 			if(check!= "no")
 			{
 				play();
@@ -104,7 +104,7 @@ public class TicTacToe
 			System.out.println("Game Tie...");
 			System.out.println("*Do you want to play Again?");
 			System.out.println("Type yes if you want to play otherwise no");
-			check= u.inputString();
+			check= utility.inputString();
 			if(check!= "no")
 			{
 				play();
@@ -115,8 +115,8 @@ public class TicTacToe
 	{
 		System.out.println("\nYour Turn");
 		System.out.println("Enter X and Y Positions:");
-		int x = u.inputInteger();
-		int y = u.inputInteger();
+		int x = utility.inputInteger();
+		int y = utility.inputInteger();
 		System.out.println("You choose "+x+" and "+y+" Positions");
 		if(x>=0 && y<3)
 		{

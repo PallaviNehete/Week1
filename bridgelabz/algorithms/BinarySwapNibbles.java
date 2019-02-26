@@ -12,16 +12,16 @@ public class BinarySwapNibbles
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter the Number: ");
-		int num = u.inputInteger();
-		String bin = Integer.toBinaryString(num);
-		while(bin.length() < 8)
+		int number = utility.inputInteger();
+		String binary = Integer.toBinaryString(number);
+		while(binary.length() < 8)
 		{
-			bin = 0+bin;
+			binary = 0+binary;
 		}
-		System.out.println("Binary Number of "+num+" is: "+bin);
-		char swapbinary[] = BinarySwapNibbles.swapNibbles(bin);
+		System.out.println("Binary Number of "+number+" is: "+binary);
+		char swapbinary[] = BinarySwapNibbles.swapNibbles(binary);
 		System.out.print("After Swapping Nibbles: ");
 		for(int k=0; k<swapbinary.length; k++)
 		{
@@ -32,11 +32,11 @@ public class BinarySwapNibbles
 		int DecimalNo = binToDec(swapNo);
 		System.out.print("\nDecimal of "+swapNo+" is: "+DecimalNo);
 	}
-	public static char[] swapNibbles(String bin)
+	public static char[] swapNibbles(String binary)
 	{
 		int i = 0;
 		char temp;
-		char ch[] = bin.toCharArray();
+		char ch[] = binary.toCharArray();
 		int j = ch.length-4;
 		for(i=0; i<4; i++)
 		{
