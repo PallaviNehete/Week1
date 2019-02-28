@@ -15,8 +15,8 @@ public class InsertionSort
 		int size = utility.inputInteger();
 		String array[] = new String[size];
 		System.out.println("Enter Elements of Array: ");
-		utility.InsertInArrayString(array);
-		utility.InsertionSortString(array);
+		utility.insertInArrayString(array);
+		utility.insertionSortString(array);
         System.out.println("\nSorted Array: ");
         utility.printIntString(array);
 	}	

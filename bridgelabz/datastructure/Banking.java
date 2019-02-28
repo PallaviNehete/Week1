@@ -14,7 +14,7 @@ public class Banking
 		int deposite = 0, balance = 0;
 		String check;
 		Utility utility = new Utility();
-		QueueClass queue = new QueueClass();
+		BankingQueueClass queue = new BankingQueueClass();
 		do
 		{
 			System.out.println("\n\t~~~~~ BANKING CASH COUNTER ~~~~~");

@@ -11,17 +11,23 @@ public class Username
 	public static void main(String[] args) 
 	{
 		Utility utility = new Utility();
+		Username user = new Username();
 		String string = "Hello <<username>>, How are You??";
 		System.out.println("Original String is: "+string);
 		System.out.print("\nEnter Username: ");
 		String uName = utility.inputString();
+		user.replaceString(string, uName);
+	}
+	public void replaceString(String string, String uName)
+	{
 		if(uName.length() <= 3)
 		{
 			System.out.print("Please Enter Full Name");
 		}
 		else
 		{
-			System.out.println("\nHello "+uName+", How are You??");
+			String output = string.replaceAll("<<username>>", uName);
+			System.out.println(output);
 		}
 	}
 }

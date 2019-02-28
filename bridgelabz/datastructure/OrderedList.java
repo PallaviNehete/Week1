@@ -7,7 +7,7 @@ public class OrderedList
 	public static void main(String[] args) throws IOException 
 	{
 		Utility utility=new Utility();
-		LinkedList list = new LinkedList();
+		UnOrderLinkedList list = new UnOrderLinkedList();
 		File file = new File("/home/admin1/ReadWrite/ordered.txt");
 		String string = utility.readFromFile(file);
 		System.out.println("Reading from File: "+string);

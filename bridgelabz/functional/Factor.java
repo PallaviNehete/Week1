@@ -11,9 +11,24 @@ public class Factor
 	public static void main(String[] args) 
 	{
 		Utility utility = new Utility();
+		Factor factor = new Factor();
 		System.out.print("Enter Number to find all Prime Factors: ");
 		int number = utility.inputInteger();
 		System.out.println("Prime Factors is:- ");
+		int factors = factor.checkPrimeFactor(number);
+		if(factors>1)
+		{
+			System.out.println(factors);
+		}
+	}
+	
+	/**
+	 * method to check wheather it is prime factor or not.
+	 * @param number
+	 * @return prime numbers.
+	 */
+	public int checkPrimeFactor(int number)
+	{
 		for(int i=2; i<=number; i++)
 		{
 			while(number%i == 0)
@@ -24,7 +39,8 @@ public class Factor
 		}
 		if(number>2)
 		{
-			System.out.println(number);
+			return number;
 		}
+		return 0;
 	}
 }

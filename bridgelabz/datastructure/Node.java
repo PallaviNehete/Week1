@@ -1,31 +1,32 @@
+// new
 package com.bridgelabz.datastructure;
-public class Node 
+public class Node<T> 
 {
-	public String data;
-	public Node next;
+	public Object data;
+	public Node<T> next;
 	public Node()
 	{
 		data = "";
 		next = null;
 	}
-	public Node(String d, Node n)
+	public Node(Object d, Node<T> n)
 	{
 		data = d;
 		next = n;
 	}
-	public void setData(String d) 
+	public void setData(Object d) 
 	{
 		data = d;
 	}
-	public void setNext(Node n) 
+	public void setNext(Node<T> n) 
 	{
 		next = n;
 	}
-	public String getData() 
+	public Object getData() 
 	{
 		return data;
 	}
-	public Node getNext() 
+	public Node<T> getNext() 
 	{
 		return next;
 	}

@@ -15,11 +15,8 @@ public class SumOfThree
 		int size = utility.inputInteger();
 		int array[] = new int[size];
 		System.out.println("Enter Elements of Array: ");
-		for(int i=0; i<array.length; i++)
-		{
-			array[i] = utility.inputInteger();
-		}
-		int noOfTriplets = threeInteger(array,size);
+		utility.insertInArrayInt(array);
+		int noOfTriplets = triplets(array,size);
 		if(noOfTriplets > 0)
 		{
 			System.out.println("Number of Triplets: "+noOfTriplets);
@@ -29,21 +26,28 @@ public class SumOfThree
 			System.out.println("Triplets Not Found");
 		}
 	}
-	public static int threeInteger(int arr[], int n)
+	
+	/**
+	 * counts the number of triples that sum to exactly 0.
+	 * @param array : array of Integers.
+	 * @param size : size of an array.
+	 * @return : number of triplets.
+	 */
+	public static int triplets(int array[], int size)
 	{
 		int count = 0;
 		System.out.println("Triplets Are: ");
-		for(int i=0; i<=n-2; i++)
+		for(int i=0; i<=size-2; i++)
 		{
-			for(int j=i+1; j<n-1; j++)
+			for(int j=i+1; j<size-1; j++)
 			{
-				for(int k=j+1; k<n; k++)
+				for(int k=j+1; k<size; k++)
 				{
-					if(arr[i]+arr[j]+arr[k] == 0)
+					if(array[i]+array[j]+array[k] == 0)
 					{
-						System.out.print(arr[i]+" ");
-						System.out.print(arr[j]+" ");
-						System.out.print(arr[k]+" \n");
+						System.out.print(array[i]+" ");
+						System.out.print(array[j]+" ");
+						System.out.print(array[k]+" \n");
 						count++;
 					}
 				}

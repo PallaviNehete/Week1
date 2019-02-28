@@ -9,14 +9,15 @@ import java.util.Random;
 import com.bridgelabz.utility.Utility;
 public class TicTacToe 
 {
+	static TicTacToe t;
 	Utility utility = new Utility();
 	Random rd = new Random(3);
 	final String Board[][] = new String [3][3];
 	boolean flag = true;
 	String check = "";
-	static TicTacToe t = new TicTacToe();
 	public static void main(String[] args) 
 	{
+		t = new TicTacToe();
 		System.out.println("\t***** WELCOME TO TIC_TAC_TOE GAME *****\n");
 		t.play();
 	}

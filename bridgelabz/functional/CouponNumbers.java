@@ -13,7 +13,7 @@ public class CouponNumbers
 		int max = 100000000;
 		int random = (int)(Math.random()*max);
 		StringBuffer s = new StringBuffer();
-		while(random>0)
+		while(random > 0)
 		{
 			s.append(array[random % array.length]);
 			random = random/array.length;

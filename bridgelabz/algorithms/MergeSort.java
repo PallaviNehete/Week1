@@ -11,66 +11,79 @@ public class MergeSort
 	public static void main(String[] args) 
 	{
 		Utility utility = new Utility();
+		MergeSort mergsort = new MergeSort(); 
 		System.out.print("Enter Size of Array: ");
 		int size = utility.inputInteger();
-		int arr[] = new int [size]; 
-		utility.InsertInArrayInt(arr);
-		MergeSort ms = new MergeSort(); 
-		ms.sort(arr, 0, arr.length-1);
+		int array[] = new int [size]; 
+		utility.insertInArrayInt(array);
+		mergsort.sort(array, 0, array.length-1);
 		System.out.println("\nSorted array: "); 
-		utility.printIntArr(arr); 	
+		utility.printIntArr(array); 	
 	}
-	void merge(int arr[], int low, int mid, int high) 
+	/**
+	 * to merge arrays.
+	 * @param array : array of Integers.
+	 * @param low : low position of array.
+	 * @param mid : mid position of array.
+	 * @param high : high position of array.
+	 */
+	void merge(int array[], int low, int mid, int high) 
 	{  
 		int n1 = mid-low+1; 
 		int n2 = high-mid; 
-		int L[] = new int [n1]; 
-		int R[] = new int [n2]; 
+		int left[] = new int [n1]; 
+		int right[] = new int [n2]; 
 		for (int i=0;i<n1;i++) 
 		{
-			L[i]= arr[low+i]; 
+			left[i]= array[low+i]; 
 		}
 		for (int j=0;j<n2;j++) 
 		{	
-			R[j]= arr[mid+1+j]; 
+			right[j]= array[mid+1+j]; 
 		}
 		int i=0,j=0; 
 		int k=low; 
 		while (i<n1 && j<n2) 
 		{ 
-			if (L[i]<=R[j]) 
+			if (left[i] <= right[j]) 
 			{ 
-				arr[k]=L[i]; 
+				array[k]= left[i]; 
 				i++; 
 			} 
 			else
 			{ 
-				arr[k]= R[j]; 
+				array[k]= right[j]; 
 				j++; 
 			} 
 			k++; 
 		} 
 		while (i<n1) 
 		{ 
-			arr[k]=L[i]; 
+			array[k] = left[i]; 
 			i++; 
 			k++; 
 		} 
 		while (j<n2) 
 		{ 
-			arr[k]=R[j]; 
+			array[k] = right[j]; 
 			j++; 
 			k++; 
 		} 
 	} 
-	void sort(int arr[], int low, int high) 
+	/**
+	 * to sort array.
+	 * @param array : array of integers.
+	 * @param low : low position of array.
+	 * @param high : high position of array.
+	 */
+	void sort(int array[], int low, int high) 
 	{ 
 		if (low < high) 
 		{ 
 			int mid = (low+high)/2; 
-			sort(arr, low, mid); 
-			sort(arr , mid+1, high); 
-			merge(arr, low, mid, high); 
+			sort(array, low, mid); 
+			sort(array , mid+1, high); 
+			merge(array, low, mid, high); 
 		} 
 	} 
 }

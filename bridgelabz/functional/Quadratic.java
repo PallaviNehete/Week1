@@ -11,8 +11,7 @@ public class Quadratic
 	public static void main(String[] args) 
 	{
 		Utility utility = new Utility();
-		int a, b, c, delta;
-		double rootX1,rootX2;
+		int a, b, c;
 		System.out.println("To Finding Roots of Quadratic Equation (a*x*x+b*x+c=0)  ");
 		System.out.print("Enter value of a: ");
 		a = utility.inputInteger();
@@ -20,7 +19,19 @@ public class Quadratic
 		b = utility.inputInteger();
 		System.out.print("Enter value of c: ");
 		c = utility.inputInteger();
-		delta = b*b-4*a*c;
+		Quadratic.quadratic(a, b, c);
+	}
+	
+	/**
+	 * method to find the roots of the equation a*x*x + b*x + c. 
+	 * @param a : 1st co-efficient of quadratic equation.
+	 * @param b : 2nd co-efficient of quadratic equation.
+	 * @param c : constant co-efficient of quadratic equation.
+	 */
+	public static void quadratic(int a, int b, int c)
+	{
+		double rootX1,rootX2;
+		int delta = b*b-4*a*c;
 		System.out.println("Value of Delta: "+delta);
 		if(delta >= 0)
 		{

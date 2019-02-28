@@ -15,8 +15,8 @@ public class BubbleSort
 		int size = utility.inputInteger();
 		int array[] = new int[size];
 		System.out.println("Enter Elements of Array: ");
-		utility.InsertInArrayInt(array);
-		utility.BubbleSortInt(array);
+		utility.insertInArrayInt(array);
+		utility.bubbleSortInt(array);
 		System.out.println("\nSorted Array: ");
 		utility.printIntArr(array);
 	}

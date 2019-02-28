@@ -7,7 +7,7 @@ public class PalindromeChecker
 		Utility utility = new Utility();
 		System.out.println("Enter Size: ");
 		int size = utility.inputInteger();
-		DequeClass dq = new DequeClass(size);
+		PalindromeDequeClass dq = new PalindromeDequeClass(size);
 		System.out.println("Enter a String: ");
 		String input = utility.inputString();
 		char[] arr = input.toCharArray();

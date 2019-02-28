@@ -13,13 +13,29 @@ public class Gambler
 	public static void main(String[] args) 
 	{
 		Utility utility = new Utility();
-		int goal, stake, trials, bets=0, win=0;
+		Gambler gambler = new Gambler();
+		int goal, stake, trials;
 		System.out.print("Enter no of stake: ");
 		stake = utility.inputInteger();
 		System.out.print("Enter Excpecting goal: ");
 		goal = utility.inputInteger();
 		System.out.print("Enter Number of Trails: ");
 		trials = utility.inputInteger();
+		double percentageWin = gambler.percentageWin(stake, goal, trials);
+		System.out.println("Percent of games won: " +percentageWin);
+		System.out.println("Percent of games loss: "+(100-percentageWin));
+	}
+	
+	/**
+	 * method to find percentage of win.
+	 * @param stake : stack should be less than goal.
+	 * @param goal : goal is a money wanted to win by gambler.
+	 * @param trials : number of trials.
+	 * @return : percentage of win.
+	 */
+	public double percentageWin(int stake, int goal, int trials)
+	{
+		int bets=0, win=0;
 		for (int i=0; i<trials; i++) 
 		{
 			int cash = stake;
@@ -40,9 +56,10 @@ public class Gambler
 				win++;
 			}
 		}
-		double percentage = 100.0*win/trials;
+		double percentageWin = 100.0*win/trials;
+
 		System.out.println(win+ " wins of "+trials+" trials");
-		System.out.println("Percent of games won: " +percentage);
-		System.out.println("Percent of games loss: "+(100-percentage));
+		return percentageWin;
+
 	}
 }

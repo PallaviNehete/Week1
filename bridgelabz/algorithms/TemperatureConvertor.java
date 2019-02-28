@@ -11,7 +11,7 @@ public class TemperatureConvertor
 	public static void main(String[] args) 
 	{
 		Utility u = new Utility();
-		double cel1, fah1, cel2,fah2;
+		double celsius1, fahrenheit1, celsius2, fahrenheit2;
 		System.out.println("TEMPERATURE CONVERTOR");
 		System.out.println();
 		System.out.println("1. Celsius to Fahrenheit");
@@ -23,19 +23,39 @@ public class TemperatureConvertor
 		{
 		case 1: 
 			System.out.print("Enter temperature in calsius: ");
-			cel1 = u.inputDouble();
-			fah1 = (cel1*9/5)+32;
-			System.out.println("Temperature in Fahrenheit is "+fah1);
+			celsius1 = u.inputDouble();
+			fahrenheit1=TemperatureConvertor.celsiusToFahrenheit(celsius1);
+			System.out.println("Temperature in Fahrenheit is "+fahrenheit1);
 			break;
 		case 2:
 			System.out.print("Enter temperature in Fahrenheit: ");
-			fah2 = u.inputDouble();
-			cel2 = (fah2-32)*5/9;
-			System.out.println("Temperature inn Calsius is "+cel2);
+			fahrenheit2 = u.inputDouble();
+			celsius2= TemperatureConvertor.fahrenheitToCelsius(fahrenheit2);
+			System.out.println("Temperature inn Calsius is "+celsius2);
 			break;
 		default:
 			System.out.println("INVAILD CHOICE... Please Enter right choice");
 			break;
 		}
+	}
+	/**
+	 * method to Convert temperature from Celsius to Fahrenheit.
+	 * @param celsius1 : temperature in celsius.
+	 * @return :  temperature in fahrenheit.
+	 */
+	public static double celsiusToFahrenheit(double celsius1)
+	{
+		double	fahrenheit1 = (celsius1*9/5)+32;
+		return fahrenheit1;
+	}
+	/**
+	 * Convert temperature from  Fahrenheit to Celsius.
+	 * @param fahrenheit2 :  temperature in fahrenheit.
+	 * @return :  temperature in celsius.
+	 */
+	public static double fahrenheitToCelsius (double fahrenheit2)
+	{
+		double	celsius2 = (fahrenheit2-32)*5/9;
+		return celsius2;
 	}
 }

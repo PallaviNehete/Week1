@@ -8,7 +8,7 @@ public class BalancedParentheses
 		Utility utility = new Utility();
 		System.out.print("Enter Maximum Size: ");
 		int size = utility.inputInteger();
-		StackClass stack = new StackClass(size); 
+		BalancedParenthStack stack = new BalancedParenthStack(size); 
 		int push = 0, pop = 0;
 		System.out.println("Enter the Expression: ");
 		String expression = utility.inputString();

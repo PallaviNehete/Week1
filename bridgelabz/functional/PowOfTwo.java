@@ -11,8 +11,18 @@ public class PowOfTwo
 	public static void main(String[] args) 
 	{
 		Utility utility = new Utility();
+		PowOfTwo power = new PowOfTwo();
 		System.out.print("Enter number which you want to find power of 2: ");
 		int number = utility.inputInteger();
+		power.powOfTwo(number);
+	}
+	
+	/**
+	 * method to find power of 2.
+	 * @param number : number to find power of 2.
+	 */
+	public void powOfTwo(int number)
+	{
 		int power = 1;
 		if((number < 31) && (number >= 0))
 		{

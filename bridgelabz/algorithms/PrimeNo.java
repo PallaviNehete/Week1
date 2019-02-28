@@ -10,15 +10,15 @@ public class PrimeNo
 {
 	public static void main(String[] args) 
 	{
-		int num = 0;
-		while(num < 1000)
+		int number = 0;
+		while(number < 1000)
 		{
-			int n = Utility.IsPrimeNumber(num);
-			if(n!=0)
+			int primenumber = Utility.primeNumber(number);
+			if(primenumber!=0)
 			{
-				System.out.print(n+" ,");
+				System.out.print(primenumber+" ,");
 			}
-			num++;
+			number++;
 		}
 	}
 }

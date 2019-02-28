@@ -14,20 +14,25 @@ public class PrimePalindromAnagram
 		System.out.println("Prime Palindrom: ");
 		while(count<1000)
 		{
-			PrimePalindromAnagram.IsPrimePlindrom(count);
+			PrimePalindromAnagram.primePlindrom(count);
 			count++;
 		}	
 		System.out.println("\n\nPrime Anagram Numbers between 1 to 1000: " );
 		PrimePalindromAnagram.primeAnagrams();
 	}
-	public static void IsPrimePlindrom(int num)
+	
+	/**
+	 * method to find prime palindrome.
+	 * @param number : number to check wheather it is prime palindrome or not.
+	 */
+	public static void primePlindrom(int number)
 	{
 		int count = 0;
-		if(num!=0 && num!=1)
+		if(number!=0 && number!=1)
 		{
-			for(int i=2; i<num; i++)
+			for(int i=2; i<number; i++)
 			{
-				if(num%i == 0)
+				if(number%i == 0)
 				{
 					count++;
 					break;
@@ -35,56 +40,65 @@ public class PrimePalindromAnagram
 			}
 			if(count == 0)
 			{
-				int rev=0,temp,rem;
-				temp = num;
-				while(num>0)
+				int reverse = 0,temp,digit;
+				temp = number;
+				while(number > 0)
 				{
-					rem = num%10;
-					rev = rev*10+rem;
-					num = num/10;
+					digit = number % 10;
+					reverse = reverse*10+ digit;
+					number = number/10;
 				}
-				if(rev == temp)
+				if(reverse == temp)
 				{
 					System.out.print(temp+" ");
 				}
 			}
 		}
 	}
+	/**
+	 * method to find prime anagrams.
+	 */
 	public static void primeAnagrams() 
 	{
-		ArrayList<Integer> al= new ArrayList<Integer>();
-		boolean b;
+		ArrayList<Integer> list= new ArrayList<Integer>();
+		boolean check;
 		for(int j=2; j<=1000; j++) 
 		{
-			b = true;
+			check = true;
 			for (int i=2; i<j/2; i++)
 			{
 				if (j%i == 0) 
 				{
-					b=false;
+					check=false;
 					break;
 				}
 			}
-			if (b)
+			if (check)
 			{
-				al.add(j);
+				list.add(j);
 			}
 		}
-		for (int i=0; i<al.size(); i++)
+		for (int i=0; i<list.size(); i++)
 		{
-			for (int j=i+1; j<al.size(); j++) 
+			for (int j=i+1; j<list.size(); j++) 
 			{
-				if (anagram(al.get(i),al.get(j))) 
+				if (anagram(list.get(i),list.get(j))) 
 				{
-					System.out.println(al.get(i)+"\t"+al.get(j));
+					System.out.println(list.get(i)+"\t"+list.get(j));
 				}
 			}
 		}
 	}
-	public static boolean anagram(int n1, int n2) 
+	/**
+	 * method to find to numbers are in anagram or not.
+	 * @param number1 : 
+	 * @param number2
+	 * @return
+	 */
+	public static boolean anagram(int number1, int number2) 
 	{
-		int n1count[] = count(n1);
-		int n2count[] = count(n2);
+		int n1count[] = countDigits(number1);
+		int n2count[] = countDigits(number2);
 		for (int i=0; i<n2count.length; i++) 
 		{
 			if (n1count[i] != n2count[i]) 
@@ -94,10 +108,15 @@ public class PrimePalindromAnagram
 		}
 		return true;
 	}
-	public static int[] count(int n) 
+	/**
+	 * method to count digits of number.
+	 * @param number : number to count digits.
+	 * @return : digits of a number.
+	 */
+	public static int[] countDigits(int number) 
 	{
-		int[] count = new int[10];
-		int temp = n;
+		int count[] = new int[10];
+		int temp = number;
 		while (temp != 0) 
 		{
 			int r=temp%10;

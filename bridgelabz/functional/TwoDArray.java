@@ -10,25 +10,25 @@ import java.util.Scanner;
 import com.bridgelabz.utility.Utility;
 public class TwoDArray 
 {
-	static Utility u = new Utility();
-	Scanner sc = new Scanner(System.in);
+	Utility utility = new Utility();
+	Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args)
 	{
-		TwoDArray arr = new TwoDArray();
+		TwoDArray array = new TwoDArray();
 		System.out.println("*2D Array of Integers*");	
-		arr.Int2DArr();
+		array.Int2DArr();
 		System.out.println();
 		System.out.println("*2D Array of Doubles*");
-		arr.Doub2DArr();
+		array.Doub2DArr();
 		System.out.println();
 		System.out.println("*2D Array of Boolean*");
-		arr.boll2DArr();
+		array.boll2DArr();
 	}	
 	
 	// Method to print 2D Array of Integers.
 	public void Int2DArr()
 	{
-		Utility utility = new Utility();
+		//Utility utility = new Utility();
 		System.out.print("Enter the number of rows: ");
 		int row = utility.inputInteger();
 		System.out.print("Enter the number of columns: ");
@@ -58,9 +58,9 @@ public class TwoDArray
 	public void Doub2DArr()
 	{
 		System.out.print("Enter the number of rows: ");
-		int row = u.inputInteger();
+		int row = utility.inputInteger();
 		System.out.print("Enter the number of columns: ");
-		int column = u.inputInteger();
+		int column = utility.inputInteger();
 		double matrix[][] = new double[row][column];
 		for(int i=0; i<row; i++)
 		{
@@ -68,7 +68,7 @@ public class TwoDArray
 			{
 
 				System.out.print("Row ["+i+"] column ["+j+"] ");
-				matrix [i][j] = u.inputInteger();
+				matrix [i][j] = utility.inputInteger();
 			}
 		}
 		System.out.println();
@@ -86,11 +86,10 @@ public class TwoDArray
 	// Method to print 2D Array of Boolean.
 	public void boll2DArr()
 	{
-		Utility u = new Utility();
 		System.out.print("Enter the number of rows: ");
-		int row = u.inputInteger();
+		int row = utility.inputInteger();
 		System.out.print("Enter the number of columns: ");
-		int column = u.inputInteger();
+		int column = utility.inputInteger();
 		System.out.println("(please enter only true or false)");
 		boolean matrix[][] = new boolean[row][column];
 		for(int i=0; i<row; i++)
@@ -98,7 +97,7 @@ public class TwoDArray
 			for(int j=0; j<column; j++)
 			{
 				System.out.print("Row ["+i+"] column ["+j+"] ");
-				matrix[i][j] = sc.nextBoolean();
+				matrix[i][j] = scanner.nextBoolean();
 			}
 		}
 		System.out.println();

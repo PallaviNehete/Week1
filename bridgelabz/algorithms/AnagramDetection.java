@@ -7,15 +7,12 @@
 package com.bridgelabz.algorithms;
 import java.util.Arrays;
 import java.util.Scanner;
-
-import com.bridgelabz.utility.Utility;
 public class AnagramDetection 
 {
 	public static void main(String[] args) 
 	{
-		Scanner scanner=new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		String string1,string2;
-		Utility u = new Utility();
 		AnagramDetection ad = new AnagramDetection();
 		System.out.print("Enter First String: ");
 		string1 = scanner.nextLine();
@@ -27,7 +24,7 @@ public class AnagramDetection
 		string2 =string2.replace(" " ,"");
 		ad.anagram(string1, string2);
 	}
-	void anagram(String string1, String string2)
+	public void anagram(String string1, String string2)
 	{
 		if(string1.length() != string2.length())
 		{

@@ -7,6 +7,19 @@
 package com.bridgelabz.functional;
 public class Permutation 
 {
+	public static void main(String[] args) 
+	{
+		String string = "xyz"; 
+		char array[] = string.toCharArray();
+		System.out.println("Permutations of String "+string+" are: ");
+		permutation(array, 0);
+	}
+	
+	/**
+	 * to find all the permutations of string.
+	 * @param array : array of characters.
+	 * @param i : index position.
+	 */
 	public static void permutation(char array[], int i)
 	{
 		char temp;
@@ -32,12 +45,5 @@ public class Permutation
 				array[i] = temp;
 			}
 		}
-	}
-	public static void main(String[] args) 
-	{
-		String string = "xyz"; 
-		char array[] = string.toCharArray();
-		System.out.println("Permutations of String "+string+" are: ");
-		permutation(array, 0);
 	}
 }
