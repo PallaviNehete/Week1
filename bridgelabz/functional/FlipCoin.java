@@ -44,9 +44,7 @@ public class FlipCoin
 			}
 		}
 		else
-		{
 			System.out.println("Please Enter valid number");
-		}
 		return percHead;
 	}
 }

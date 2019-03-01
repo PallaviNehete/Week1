@@ -18,17 +18,16 @@ public class TwoDArray
 		System.out.println("*2D Array of Integers*");	
 		array.Int2DArr();
 		System.out.println();
-		System.out.println("*2D Array of Doubles*");
+		System.out.println("\n*2D Array of Doubles*");
 		array.Doub2DArr();
 		System.out.println();
-		System.out.println("*2D Array of Boolean*");
+		System.out.println("\n*2D Array of Boolean*");
 		array.boll2DArr();
 	}	
 	
 	// Method to print 2D Array of Integers.
 	public void Int2DArr()
 	{
-		//Utility utility = new Utility();
 		System.out.print("Enter the number of rows: ");
 		int row = utility.inputInteger();
 		System.out.print("Enter the number of columns: ");
@@ -42,15 +41,13 @@ public class TwoDArray
 				matrix [i][j] = utility.inputInteger();
 			}
 		}
-		System.out.println();
-		System.out.println("Your 2D Array of integer of "+row+" rows "+"and "+column+" is: ");
+		System.out.println("\nYour 2D Array of integer of "+row+" rows "+"and "+column+" is: ");
 		for(int i=0; i<row; i++)
 		{
 			for(int j=0; j<column; j++)
 			{
 				System.out.print(matrix[i][j]+" ");
 			}
-			System.out.println();
 		}
 	}
 	
@@ -71,15 +68,13 @@ public class TwoDArray
 				matrix [i][j] = utility.inputInteger();
 			}
 		}
-		System.out.println();
-		System.out.println("Your 2D Array of integer of "+row+" rows "+"and "+column+" is: ");
+		System.out.println("\nYour 2D Array of integer of "+row+" rows "+"and "+column+" is: ");
 		for(int i=0; i<row; i++)
 		{
 			for(int j=0; j<column; j++)
 			{
 				System.out.print(matrix[i][j]+" ");
 			}
-			System.out.println();
 		}
 	}
 	
@@ -100,15 +95,13 @@ public class TwoDArray
 				matrix[i][j] = scanner.nextBoolean();
 			}
 		}
-		System.out.println();
-		System.out.println("Your 2D Array of integer of "+row+" rows "+"and "+column+" is: ");
+		System.out.println("\nYour 2D Array of integer of "+row+" rows "+"and "+column+" is: ");
 		for(int i=0; i<row; i++)
 		{
 			for(int j=0; j<column; j++)
 			{
 				System.out.print(matrix[i][j]+" ");
 			}
-			System.out.println();
 		}
 	}
 }

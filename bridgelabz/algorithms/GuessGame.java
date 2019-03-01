@@ -53,20 +53,14 @@ public class GuessGame
 					low = mid+1;	
 				}
 				else
-				{
 					return mid;
-				}
 			}
 			else if(check.equalsIgnoreCase("false"))
 			{
-				System.out.println("*Please Check Once Again");
-				System.out.println();
+				System.out.println("*Please Check Once Again\n");
 			}
 			else
-			{
-				System.out.println("*Please only enter TRUE or FALSE");
-				System.out.println();
-			}
+				System.out.println("*Please only enter TRUE or FALSE\n");
 		}
 		return 0;
 	}

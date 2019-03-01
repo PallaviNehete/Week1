@@ -24,12 +24,16 @@ public class AnagramDetection
 		string2 =string2.replace(" " ,"");
 		ad.anagram(string1, string2);
 	}
+	
+	/**
+	 * to check two strings are in anagram or not.
+	 * @param string1 : Input String 1.
+	 * @param string2 : Input String 2.
+	 */
 	public void anagram(String string1, String string2)
 	{
 		if(string1.length() != string2.length())
-		{
 			System.out.println("\n"+string1+" and "+string2+" are not an Anagram");
-		}
 		else
 		{
 			char array1 [] = string1.toCharArray();
@@ -37,13 +41,9 @@ public class AnagramDetection
 			Arrays.sort(array1);
 			Arrays.sort(array2);
 			if(Arrays.equals(array1, array2))
-			{
-				System.out.println("\n"+string1+" and "+string2+" are in Anagram");
-			}
+				System.out.println("\n'"+string1+"' and '"+string2+"' are in Anagram");
 			else
-			{
-				System.out.println("\n"+string1+" and "+string2+" are not an Anagram");
-			}
+				System.out.println("\n'"+string1+"' and '"+string2+"' are not an Anagram");
 		}
 	}
 }

@@ -40,8 +40,6 @@ public class PowOfTwo
 			}
 		}
 		else
-		{
 			System.out.println("Please enter number between 0 to 31");
-		}
 	}
 }

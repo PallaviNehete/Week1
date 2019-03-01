@@ -5,49 +5,40 @@
  */
 
 package com.bridgelabz.functional;
-import java.util.Random;
 import com.bridgelabz.utility.Utility;
 public class CouponNumbers
 {
 	public static void main(String[] args) 
 	{
 		Utility utility = new Utility();
-		CouponNumbers coupon = new CouponNumbers();
 		System.out.println("Enter the number of coupons: ");
 		int noOfCoupons = utility.inputInteger();
-		coupon.coupons(noOfCoupons);
+		coupons(noOfCoupons);
 	}
 	
 	/**
-	 * method to find coupons.
+	 * method to find distinct coupons.
 	 * @param noOfCoupons : number of coupons.
 	 */
-	public void coupons(int noOfCoupons)
+	public static void coupons(int noOfCoupons)
 	{
-		Random random=new Random();
-		int count;
-		char array[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".toCharArray();
-		char coupons[] = new char[noOfCoupons];
-		for(int i=0; i<noOfCoupons; i++)
+		int check = 0;
+		int array[] = new int[noOfCoupons];
+		for(int i=0; i<array.length; i++)
 		{
-			coupons[i] = array[random.nextInt(coupons.length)];
-			System.out.println(coupons[i]+" ");
+			array[i] = (int)(Math.random()* 1000);
 		}
-		System.out.println("Distinct coupon numbers are :");
-		for(int i=0; i<coupons.length; i++)
+		for(int i=0; i<array.length; i++)
 		{
-			count=0;
-			for(int j=i+1; j<coupons.length; j++)
+			for(int j=i+1; j<array.length; j++)
 			{
-				if(coupons[i]==coupons[j])
+				if(array[i] == array[j])
 				{
-					count=1;
+					check++;
 				}
 			}
-			if(count==0) 
-			{
-				System.out.println(coupons[i]);
-			}
+			if(check==0)
+				System.out.println(array[i]);
 		}
 	}
 }

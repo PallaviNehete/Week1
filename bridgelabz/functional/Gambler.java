@@ -25,7 +25,7 @@ public class Gambler
 		System.out.println("Percent of games won: " +percentageWin);
 		System.out.println("Percent of games loss: "+(100-percentageWin));
 	}
-	
+
 	/**
 	 * method to find percentage of win.
 	 * @param stake : stack should be less than goal.
@@ -35,21 +35,16 @@ public class Gambler
 	 */
 	public double percentageWin(int stake, int goal, int trials)
 	{
-		int bets=0, win=0;
+		int  win=0;
 		for (int i=0; i<trials; i++) 
 		{
 			int cash = stake;
 			while (cash>0 && cash<goal) 
 			{
-				bets++;
 				if (Math.random()<0.5)
-				{
 					cash++;
-				}
 				else
-				{
 					cash--;   
-				}
 			}
 			if (cash == goal)
 			{
@@ -57,9 +52,7 @@ public class Gambler
 			}
 		}
 		double percentageWin = 100.0*win/trials;
-
 		System.out.println(win+ " wins of "+trials+" trials");
 		return percentageWin;
-
 	}
 }

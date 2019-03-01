@@ -35,8 +35,6 @@ public class HarmonicNumber
 			System.out.println("\n"+temp+"th Harmonic number is: "+harmonic);
 		}
 		else
-		{
 			System.out.println("\n*Please Enter Number Greater than zero");
-		}
 	}
 }

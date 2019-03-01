@@ -30,7 +30,6 @@ public class Stopwatch
 		else
 		{
 			System.out.println("Please Enter 1 if you want to start stopwatch:");
-		
 		}
 		System.out.print("Enter 2 if you want to stop stopwatch: ");
 		int stopinput = utility.inputInteger();

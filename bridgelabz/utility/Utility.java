@@ -5,13 +5,7 @@
  */
 
 package com.bridgelabz.utility;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Utility 
 {
@@ -24,7 +18,7 @@ public class Utility
 	{
 		return (scanner.nextInt());
 	}
-	
+
 	/**
 	 * Method to take a String Input from user.
 	 * @return : returns String value.
@@ -33,7 +27,7 @@ public class Utility
 	{
 		return (scanner.next());
 	}
-	
+
 	/**
 	 * Method to take a Double Input from user.
 	 * @return : returns double value.
@@ -42,7 +36,7 @@ public class Utility
 	{
 		return (scanner.nextDouble());
 	}
-	
+
 	/**
 	 * Method to Insert in array Integer.
 	 * @param array : array of integers.
@@ -50,11 +44,9 @@ public class Utility
 	public void insertInArrayInt(int array[])
 	{
 		for(int i=0; i<array.length; i++)
-		{
 			array[i] = scanner.nextInt();
-		}
 	}
-	
+
 	/**
 	 * Method to Insert in array String.
 	 * @param array : array of Strings.
@@ -62,11 +54,9 @@ public class Utility
 	public void insertInArrayString(String array[])
 	{
 		for(int i=0; i<array.length; i++)
-		{
 			array[i] = scanner.next();
-		}
 	}
-	
+
 	/**
 	 * Method to print Integer type of Array.
 	 * @param array : array of integers.
@@ -74,11 +64,9 @@ public class Utility
 	public void printIntArr(int array[])
 	{
 		for(int j=0; j<array.length; j++)
-		{
 			System.out.println(array[j]+" ");
-		}
 	}
-	
+
 	/**
 	 * Method to print String type of Array.
 	 * @param array : array of string.
@@ -86,11 +74,79 @@ public class Utility
 	public void printIntString(String array[])
 	{
 		for(int j=0; j<array.length; j++)
-		{
 			System.out.println(array[j]);
+	}
+	
+	/**
+	 * Take a user name as input and replace <<UserName>> with the proper name.
+	 * @param string : input String.
+	 * @param uName : user name.
+	 */
+	public void replaceString(String string, String uName)
+	{
+		if(uName.length() <= 3)
+			System.out.print("Please Enter Full Name");
+		else
+		{
+			String output = string.replaceAll("<<username>>", uName);
+			System.out.println(output);
 		}
 	}
 	
+	/**
+	 * Method to find Euclidean distance from point (x,y) to the origin (0,0).
+	 * @param x : distance of x from origin (0,0). 
+	 * @param y : distance of y from origin (0,0).
+	 * @return : distance from point (x,y) to the origin(0,0).
+	 */
+	public double distance(double x , double y)
+	{
+		double euclideanDistance = Math.sqrt(x*x+y*y);
+		return euclideanDistance;
+	}
+
+	/**
+	 * method to check wheather it is prime factor or not.
+	 * @param number
+	 * @return prime numbers.
+	 */
+	public int checkPrimeFactor(int number)
+	{
+		for(int i=2; i<=number; i++)
+		{
+			while(number%i == 0)
+			{
+				System.out.println(i);
+				number = number/i;	
+			}
+		}
+		if(number>2)
+			return number;
+		return 0;
+	}
+
+	/**
+	 * method to find the roots of the equation a*x*x + b*x + c. 
+	 * @param a : 1st co-efficient of quadratic equation.
+	 * @param b : 2nd co-efficient of quadratic equation.
+	 * @param c : constant co-efficient of quadratic equation.
+	 */
+	public void quadratic(int a, int b, int c)
+	{
+		double rootX1,rootX2;
+		int delta = b*b-4*a*c;
+		System.out.println("Value of Delta: "+delta);
+		if(delta >= 0)
+		{
+			rootX1 = (-b+ Math.sqrt(delta))/(2*a);
+			rootX2 = (-b- Math.sqrt(delta))/(2*a);
+			System.out.println("\n1st Root of Quadratic Equation is: "+rootX1);
+			System.out.println("2nd Root of Quadratic Equation is: "+rootX2);
+		}
+		else
+			System.out.println("\nRoots of Quadratic Equation are Imaginary");
+	}
+
 	/**
 	 * Method to determine whether entered year is Leap year or not.
 	 * @param year : it is a year.
@@ -104,6 +160,70 @@ public class Utility
 			return true;
 		else
 			return false;
+	}
+	
+	/**
+	 * to find binary representation of a decimal number.
+	 * @param number : number to find binary representation.
+	 * @return : binary representation of a decimal number.
+	 */
+	public String toBinary(int number)
+	{
+		String binary="";
+		while(number > 0)
+		{
+			binary = (number%2) + binary;
+			number = number/2;
+		}
+		while(binary.length()<4)
+		{
+			binary = 0+binary;
+		}
+		return binary;	
+	}
+	
+	/**
+	 * method to swap binary nibbles.
+	 * @param binary : binary number.
+	 * @return : binary number after swap nibbles.
+	 */
+	public char[] swapNibbles(String binary)
+	{
+		int i = 0;
+		char temp;
+		char swap[] = binary.toCharArray();
+		int j = swap.length-4;
+		for(i=0; i<4; i++)
+		{
+			temp = swap[j];
+			swap[j] = swap[i];
+			swap[i] = temp;
+			j++;
+		}
+		return swap;
+	}
+	
+	/**
+	 * method to convert binary to decimal.
+	 * @param swapNo : swaped binary number.
+	 * @return : decimal representation of swapNo.
+	 */
+	public int binaryToDecimal(int swapNo)
+	{
+		int decimal = 0, n = 0;
+		while(swapNo >= 0)
+		{
+			if(swapNo == 0)
+				break;  
+			else
+			{  
+				int lastDig =swapNo%10;  
+				decimal = (int)(decimal+ lastDig*Math.pow(2, n));  
+				swapNo = swapNo/10;  
+				n++;  
+			}  
+		}
+		return decimal;
 	}
 	
 	/**
@@ -131,6 +251,114 @@ public class Utility
 		}
 		return 0;
 	}
+
+	/**
+	 * method to find prime palindrome.
+	 * @param number : number to check wheather it is prime palindrome or not.
+	 */
+	public void primePlindrom(int number)
+	{
+		int count = 0;
+		if(number!=0 && number!=1)
+		{
+			for(int i=2; i<number; i++)
+			{
+				if(number%i == 0)
+				{
+					count++;
+					break;
+				}
+			}
+			if(count == 0)
+			{
+				int reverse = 0,temp,digit;
+				temp = number;
+				while(number > 0)
+				{
+					digit = number % 10;
+					reverse = reverse*10+ digit;
+					number = number/10;
+				}
+				if(reverse == temp)
+				{
+					System.out.print(temp+" ");
+				}
+			}
+		}
+	}
+	
+	/**
+	 * method to find prime anagrams.
+	 */
+	public void primeAnagrams() 
+	{
+		ArrayList<Integer> list= new ArrayList<Integer>();
+		boolean check;
+		for(int j=2; j<=1000; j++) 
+		{
+			check = true;
+			for (int i=2; i<j/2; i++)
+			{
+				if (j%i == 0) 
+				{
+					check=false;
+					break;
+				}
+			}
+			if (check)
+			{
+				list.add(j);
+			}
+		}
+		for (int i=0; i<list.size(); i++)
+		{
+			for (int j=i+1; j<list.size(); j++) 
+			{
+				if (anagram(list.get(i),list.get(j))) 
+				{
+					System.out.println(list.get(i)+"\t"+list.get(j));
+				}
+			}
+		}
+	}
+	
+	/**
+	 * method to find to numbers are in anagram or not.
+	 * @param number1 : 
+	 * @param number2
+	 * @return
+	 */
+	public static boolean anagram(int number1, int number2) 
+	{
+		int n1count[] = countDigits(number1);
+		int n2count[] = countDigits(number2);
+		for (int i=0; i<n2count.length; i++) 
+		{
+			if (n1count[i] != n2count[i]) 
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * method to count digits of number.
+	 * @param number : number to count digits.
+	 * @return : digits of a number.
+	 */
+	public static int[] countDigits(int number) 
+	{
+		int count[] = new int[10];
+		int temp = number;
+		while (temp != 0) 
+		{
+			int r=temp%10;
+			count[r]++;
+			temp=temp/10;
+		}
+		return count;
+	}
 	
 	/**
 	 * Method to Sort Integers using Insertion sort.
@@ -152,7 +380,7 @@ public class Utility
 			}
 		}
 	}
-	
+
 	/**
 	 * Method to Sort String using Insertion sort.
 	 * @param array : array of String.
@@ -173,7 +401,7 @@ public class Utility
 			}
 		}
 	}
-	
+
 	/**
 	 * Method to Sort Integers using Bubble sort.
 	 * @param array : array of integers.
@@ -194,7 +422,7 @@ public class Utility
 			}
 		}
 	}
-	
+
 	/**
 	 * Method to Sort String using Bubble sort.
 	 * @param array : array of String.
@@ -215,7 +443,7 @@ public class Utility
 			}
 		}
 	}
-	
+
 	/**
 	 * Method to Search Integers using Binary search.
 	 * @param array : array of integers.
@@ -248,7 +476,7 @@ public class Utility
 			System.out.println("Number not Found");
 		}
 	}
-	
+
 	/**
 	 * Method to Search Strings using Binary search.
 	 * @param array : array of String.
@@ -277,10 +505,6 @@ public class Utility
 			mid = (high+low)/2;
 		}
 		if(low>high)
-		{
 			System.out.println("String not found");
-		}
 	}
-	
-
 }

@@ -25,8 +25,7 @@ public class Permutation
 		char temp;
 		if(i == array.length)
 		{
-			int n = array.length;
-			for(int j=0; j<n; j++)
+			for(int j=0; j<array.length; j++)
 			{
 				System.out.print(array[j]);
 			}

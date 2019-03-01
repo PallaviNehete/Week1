@@ -5,7 +5,6 @@ public class TicTacToeUtility
 	Utility utility = new Utility();
 	Random rd = new Random(3);
 	final String Board[][] = new String [3][3];
-	static TicTacToeUtility ticTocToeUtility = new TicTacToeUtility();
 	String check = "";
 	
 	/**
@@ -13,16 +12,16 @@ public class TicTacToeUtility
 	 */
 	public void play()
 	{
-		ticTocToeUtility.setBoard();
-		ticTocToeUtility.displayBoard();
+		setBoard();
+		displayBoard();
 		do 
 		{
-			ticTocToeUtility.player();
-			ticTocToeUtility.displayWinner();
-			ticTocToeUtility.gameTie();
-			ticTocToeUtility.computer();
-			ticTocToeUtility.displayWinner();
-			ticTocToeUtility.gameTie();
+			player();
+			displayWinner();
+			gameTie();
+			computer();
+			displayWinner();
+			gameTie();
 		}while(check!= "no");
 	}
 
@@ -138,8 +137,8 @@ public class TicTacToeUtility
 			if((Board[x][y]!="X") && (Board[x][y]!="O"))
 			{
 				Board[x][y]="O";
-				ticTocToeUtility.displayBoard();
-				ticTocToeUtility.displayWinner();
+				displayBoard();
+				displayWinner();
 			}
 			else
 			{
@@ -166,8 +165,8 @@ public class TicTacToeUtility
 		if((Board[x][y]!="X") && (Board[x][y]!="O"))
 		{
 			Board[x][y]="X";
-			ticTocToeUtility.displayBoard();
-			ticTocToeUtility.displayWinner();
+			displayBoard();
+			displayWinner();
 		}
 		else
 		{

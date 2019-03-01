@@ -21,7 +21,7 @@ public class BinarySwapNibbles
 			binary = 0+binary;
 		}
 		System.out.println("Binary Number of "+number+" is: "+binary);
-		char swapbinary[] = BinarySwapNibbles.swapNibbles(binary);
+		char swapbinary[] = utility.swapNibbles(binary);
 		System.out.print("After Swapping Nibbles: ");
 		for(int i=0; i<swapbinary.length; i++)
 		{
@@ -29,51 +29,7 @@ public class BinarySwapNibbles
 		}
 		System.out.println();
 		int swapNo = Integer.parseInt(new String(swapbinary));
-		int DecimalNo = binToDec(swapNo);
+		int DecimalNo = utility.binaryToDecimal(swapNo);
 		System.out.print("\nDecimal of "+swapNo+" is: "+DecimalNo);
-	}
-	
-	/**
-	 * method to swap binary nibbles.
-	 * @param binary : binary number.
-	 * @return
-	 */
-	public static char[] swapNibbles(String binary)
-	{
-		int i = 0;
-		char temp;
-		char swap[] = binary.toCharArray();
-		int j = swap.length-4;
-		for(i=0; i<4; i++)
-		{
-			temp = swap[j];
-			swap[j] = swap[i];
-			swap[i] = temp;
-			j++;
-		}
-		return swap;
-	}
-	
-	/**
-	 * method to convert binary to decimal.
-	 * @param swapNo : swaped binary number.
-	 * @return : decimal representation of swapNo.
-	 */
-	public static int binToDec(int swapNo)
-	{
-		int decimal = 0, n = 0;
-		while(swapNo >= 0)
-		{
-			if(swapNo == 0)
-				break;  
-			else
-			{  
-				int lastDig =swapNo%10;  
-				decimal = (int)(decimal+ lastDig*Math.pow(2, n));  
-				swapNo = swapNo/10;  
-				n++;  
-			}  
-		}
-		return decimal;
 	}
 }

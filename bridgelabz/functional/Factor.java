@@ -14,33 +14,16 @@ public class Factor
 		Factor factor = new Factor();
 		System.out.print("Enter Number to find all Prime Factors: ");
 		int number = utility.inputInteger();
-		System.out.println("Prime Factors is:- ");
-		int factors = factor.checkPrimeFactor(number);
-		if(factors>1)
+		if(number>1)
 		{
-			System.out.println(factors);
-		}
-	}
-	
-	/**
-	 * method to check wheather it is prime factor or not.
-	 * @param number
-	 * @return prime numbers.
-	 */
-	public int checkPrimeFactor(int number)
-	{
-		for(int i=2; i<=number; i++)
-		{
-			while(number%i == 0)
+			System.out.println("Prime Factors is:- ");
+			int factors = utility.checkPrimeFactor(number);
+			if(factors>1)
 			{
-				System.out.println(i);
-				number = number/i;	
+				System.out.println(factors);
 			}
 		}
-		if(number>2)
-		{
-			return number;
-		}
-		return 0;
+		else
+			System.out.println("Please Enter number greater than 1.");
 	}
 }

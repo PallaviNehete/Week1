@@ -19,30 +19,6 @@ public class Quadratic
 		b = utility.inputInteger();
 		System.out.print("Enter value of c: ");
 		c = utility.inputInteger();
-		Quadratic.quadratic(a, b, c);
-	}
-	
-	/**
-	 * method to find the roots of the equation a*x*x + b*x + c. 
-	 * @param a : 1st co-efficient of quadratic equation.
-	 * @param b : 2nd co-efficient of quadratic equation.
-	 * @param c : constant co-efficient of quadratic equation.
-	 */
-	public static void quadratic(int a, int b, int c)
-	{
-		double rootX1,rootX2;
-		int delta = b*b-4*a*c;
-		System.out.println("Value of Delta: "+delta);
-		if(delta >= 0)
-		{
-			rootX1 = (-b+ Math.sqrt(delta))/(2*a);
-			rootX2 = (-b- Math.sqrt(delta))/(2*a);
-			System.out.println("\n1st Root of Quadratic Equation is: "+rootX1);
-			System.out.println("2nd Root of Quadratic Equation is: "+rootX2);
-		}
-		else
-		{
-			System.out.println("\nRoots of Quadratic Equation are Imaginary");
-		}
+		utility.quadratic(a, b, c);
 	}
 }

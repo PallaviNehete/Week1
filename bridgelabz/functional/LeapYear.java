@@ -18,17 +18,11 @@ public class LeapYear
 		{
 			flag = utility.isLeapYear(year);
 			if(flag)
-			{
 				System.out.println(year+" is Leap Year");
-			}
 			else
-			{
 				System.out.println(year+" is not Leap Year");
-			}
 		}
 		else
-		{
 			System.out.println("*Please Enter valid year");
-		}
 	}
 }
