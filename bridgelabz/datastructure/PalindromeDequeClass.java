@@ -2,7 +2,7 @@ package com.bridgelabz.datastructure;
 import java.util.Scanner;
 public class PalindromeDequeClass 
 {
-	static int  max=100;
+	int  max=100;
 	int arr[];
 	int front;
 	int rear;
@@ -11,7 +11,7 @@ public class PalindromeDequeClass
 	{
 		arr = new int[max];
 		front = -1;
-		rear = 0;
+		rear = -1;
 		this.size = size;
 	}
 	boolean isFull()
@@ -25,9 +25,7 @@ public class PalindromeDequeClass
 	void insertFront(int key)
 	{
 		if(isFull())
-		{
 			System.out.println("Deque is full...");
-		}
 		if(front == -1)
 		{
 			front = 0;
@@ -38,15 +36,13 @@ public class PalindromeDequeClass
 			front = size-1;
 		}
 		else
-			front=front-1;
+			front = front-1;
 		arr[front]=key;
 	}
 	void insertRear (int key)
 	{
 		if(isFull())
-		{
 			System.out.println("Deque is full...");
-		}
 		if(front == -1)
 		{
 			front = 0;
@@ -61,9 +57,7 @@ public class PalindromeDequeClass
 	void deleteFront()
 	{
 		if(isEmpty())
-		{
 			System.out.println("Deque is Empty...");
-		}
 		if(front == rear)
 		{
 			front = -1;
@@ -77,9 +71,7 @@ public class PalindromeDequeClass
 	void deleteRear()
 	{
 		if(isEmpty())
-		{
 			System.out.println("Deque is Empty...");
-		}
 		if(front == rear)
 		{
 			front = -1;
@@ -98,15 +90,14 @@ public class PalindromeDequeClass
 			for(int i=0; i<count; i++)
 			{
 				int index=(front+i) % size; // Index of element while travesing circularly from front
-				System.out.println(arr[i]);
+				System.out.println("Array: "+arr[index]);
 			}
 			System.out.println("Count is: "+count);
 		}
 		else
-		{
 			System.out.println("Queue is Empty...");
-		}
 	}
+	
 	public static void main(String[] args) 
 	{
 		Scanner sc=new Scanner(System.in);
@@ -118,7 +109,16 @@ public class PalindromeDequeClass
 		dc.insertFront(8);
 		dc.insertFront(5);
 		dc.insertFront(6);
-		
+		dc.insertRear(9);
+		dc.insertRear(7);
+		dc.insertRear(1);
+		dc.insertRear(0);
+		dc.insertRear(6);
+		dc.insertRear(5);
+		dc.insertFront(8);
+		//dc.deleteRear();
+		dc.deleteRear();
+		dc.deleteFront();
 		//dc.deleteRear();
 		//dc.deleteFront();
 		dc.countPrint();

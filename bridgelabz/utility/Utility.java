@@ -163,6 +163,22 @@ public class Utility
 	}
 	
 	/**
+	 * method to find day.
+	 * @param year : taken from user to find day.
+	 * @param month : taken from user to find day.
+	 * @param date : taken from user to find day.
+	 * @return : day of week.
+	 */
+	public int dayWeek(int year, int month, int date)
+	{
+		int y0 = year - (14 - month) / 12;
+		int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
+		int m0 = month + 12 * ((14 - month) / 12) - 2;
+		int d0 = (date + x + (31 * m0) / 12) % 7;
+		return d0;
+	}
+	
+	/**
 	 * to find binary representation of a decimal number.
 	 * @param number : number to find binary representation.
 	 * @return : binary representation of a decimal number.
@@ -353,8 +369,8 @@ public class Utility
 		int temp = number;
 		while (temp != 0) 
 		{
-			int r=temp%10;
-			count[r]++;
+			int remender = temp%10;
+			count[remender]++;
 			temp=temp/10;
 		}
 		return count;
@@ -379,7 +395,7 @@ public class Utility
 				}
 			}
 		}
-	}
+	}  
 
 	/**
 	 * Method to Sort String using Insertion sort.
@@ -411,13 +427,13 @@ public class Utility
 		int temp;
 		for(int i=0; i<array.length; i++)
 		{
-			for(int j=1; j<array.length-i; j++)
+			for(int j=0; j<array.length-i-1; j++)
 			{
-				if(array[j-1] > array[j])
+				if(array[j] > array[j+1])
 				{
-					temp = array[j-1];  
-					array[j-1] = array[j];  
-					array[j] = temp; 
+					temp = array[j];  
+					array[j] = array[j+1];  
+					array[j+1] = temp; 
 				}
 			}
 		}
@@ -489,11 +505,11 @@ public class Utility
 		mid = low+(high-low)/2;
 		while (low <= high) 
 		{
-			if(search.compareToIgnoreCase(array[mid])>0)
+			if(search.compareToIgnoreCase(array[mid]) > 0)
 			{
 				low = mid+1;
 			}
-			else if(search.compareToIgnoreCase(array[mid])==0)
+			else if(search.compareToIgnoreCase(array[mid]) == 0)
 			{
 				System.out.println("Word is found at "+(mid+1)+" position");
 				break;

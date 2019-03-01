@@ -11,7 +11,6 @@ public class Factor
 	public static void main(String[] args) 
 	{
 		Utility utility = new Utility();
-		Factor factor = new Factor();
 		System.out.print("Enter Number to find all Prime Factors: ");
 		int number = utility.inputInteger();
 		if(number>1)

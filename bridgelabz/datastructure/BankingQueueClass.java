@@ -67,16 +67,9 @@ public class BankingQueueClass
 		if(!IsEmpty())
 		{
 			int count = (rear + maxSize - front) % maxSize+1;
-			/*for(int i=0; i<count; i++)
-			{
-				int index=(front+i) % maxSize; // Index of element while travesing circularly from front
-				System.out.println(queue[i]);
-			}*/
 			System.out.println(count+" Peoples are in queue.");
 		}
 		else
-		{
 			System.out.println("Queue is Empty...");
-		}
 	}
 }

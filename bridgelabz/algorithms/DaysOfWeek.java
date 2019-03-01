@@ -27,21 +27,8 @@ public class DaysOfWeek
 			System.out.print("Enter Date: ");		
 			date = utility.inputInteger();
 		}while(!(date>0 && date<32));
-		DaysOfWeek.dayWeek(year, month, date);
-	}
-	/**
-	 * method to find day.
-	 * @param year : taken from user to find day.
-	 * @param month : taken from user to find day. 
-	 * @param date : taken from user to find day.
-	 */
-	public static void dayWeek(int year, int month, int date)
-	{
-		int y0 = year - (14 - month) / 12;
-		int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
-		int m0 = month + 12 * ((14 - month) / 12) - 2;
-		int d0 = (date + x + (31 * m0) / 12) % 7;
-		switch (d0) 
+		int day = utility.dayWeek(year, month, date);
+		switch (day) 
 		{
 		case 0:
 			System.out.println("\nIt's Sunday");
@@ -68,4 +55,6 @@ public class DaysOfWeek
 			break;
 		}
 	}
+
+	
 }

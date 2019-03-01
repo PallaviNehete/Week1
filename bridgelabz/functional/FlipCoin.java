@@ -16,35 +16,28 @@ public class FlipCoin
 		int noOfToss = utility.inputInteger();
 		if(noOfToss>0)
 		{
-			double percentagHead = flip.percentageHead(noOfToss);
-			System.out.println("Percentage of Head: "+percentagHead);
-			System.out.println("Percentage of Tails: "+(100-percentagHead));
+			flip.percentageHead(noOfToss);
 		}
 		else
-		{
 			System.out.println("*Please Enter valid number");
-		}
 	}
-	
+
 	/**
 	 * method to find percentage of head.
 	 * @param noOfToss : number of times to Flip Coin.
-	 * @return : percentage of head.
 	 */
-	public double percentageHead(double noOfToss)
+	public void percentageHead(double noOfToss)
 	{
-		double noOfHeads = Math.random();
-		double noOfTails = Math.random();
-		double percHead = 0, percTail=0;
-		if(noOfToss > 0)
-		{
-			if(noOfTails < 0.5)
-			{
-				percHead = noOfHeads/noOfToss*100;
-			}
-		}
+		double ramdomNum = Math.random();
+		int noOfTails = 0, noOfHeads = 0;
+		double percTails=0;
+		if(ramdomNum < 0.5)
+			noOfTails++;
 		else
-			System.out.println("Please Enter valid number");
-		return percHead;
+			noOfHeads++;
+		percTails = noOfTails/noOfToss*100;
+		System.out.println("Percentage of Tail: "+percTails);
+		System.out.println("Percentage of Head: "+(100 - percTails));
 	}
 }
+

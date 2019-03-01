@@ -15,6 +15,7 @@ public class MergeSort
 		System.out.print("Enter Size of Array: ");
 		int size = utility.inputInteger();
 		int array[] = new int [size]; 
+		System.out.println("Enter Array Elements: ");
 		utility.insertInArrayInt(array);
 		mergsort.sort(array, 0, array.length-1);
 		System.out.println("\nSorted array: "); 

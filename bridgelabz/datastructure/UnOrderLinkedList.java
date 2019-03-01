@@ -1,7 +1,4 @@
 package com.bridgelabz.datastructure;
-
-import java.io.File;
-
 public class UnOrderLinkedList 
 {
 	int size;
@@ -215,6 +212,17 @@ public class UnOrderLinkedList
 		return false;
 	}
 
+	public boolean searchInt(Object val)
+	{
+		Node<String> t = start;
+		while(t != null)
+		{
+			if(val == t.getData())
+				return true;
+			t = t.getNext();
+		}
+		return false;
+	}
 	public void display()
 	{
 		if(isEmpty())
@@ -228,5 +236,9 @@ public class UnOrderLinkedList
 				tempNode = tempNode.next;
 			}
 		}
+	}
+	public static void main(String[] args) {
+		UnOrderLinkedList ul = new UnOrderLinkedList();
+		ul.append(data);
 	}
 }
