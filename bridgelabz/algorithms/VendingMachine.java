@@ -1,8 +1,8 @@
 /**
  * created by: Pallavi Nehete.
  * Date: 21/02/2019.
- * Purpose: Calculate the minimum number of Notes as well as the Notes to be returned by the Vending Machine as a Change
- * taking array for Notes using Recursion Calculating number of minimum Notes Return by Vending machine
+ * Purpose: Calculate minimum number of Notes as well as the Notes to be returned by Vending Machine as a Change
+ * Calculating number of minimum Notes Return by Vending machine.
  */
 
 package com.bridgelabz.algorithms;
@@ -14,30 +14,37 @@ public class VendingMachine
 		Utility utility = new Utility();
 		System.out.print("Enter The Amount: ");
 		int amount = utility.inputInteger();
-		VendingMachine.countNotes(amount);
+		int totalNotes[] = VendingMachine.countNotes(amount);
+		int noOfNotes = 0;
+		for (int i=0; i <totalNotes.length; i++) 
+		{ 
+			if (totalNotes[i] > 0) 
+			{
+				System.out.println(totalNotes[i]+" notes of "+totalNotes[i]); 
+				noOfNotes = noOfNotes + totalNotes[i];
+			}
+		}
+		System.out.println("\n Total Number of Notes: "+noOfNotes);
 	}
-	public static void countNotes(int amount)
+	
+	/**
+	 * method to count Fewest Notes to be returned for Vending Machine.
+	 * @param amount : amount entered by user.
+	 * @return : array of countNotes which includes count of all notes.
+	 */
+	public static int[] countNotes(int amount)
 	{
-		int total = 0;
 		int notes[] = {1000,500,100,50,10,5,2,1}; 
-		int noteCounter[] = new int[9]; 
-		for (int i=0; i<notes.length;i++)
+		int countNotes[] = new int[9]; 
+		for (int i=0; i<notes.length; i++)
 		{ 
 			if (amount >= notes[i]) 
 			{ 
-				noteCounter[i] = amount/notes[i]; 
+				countNotes[i] = amount/notes[i]; 
 				amount = amount%notes[i];
+				countNotes(amount);
 			}
 		}
-		System.out.println(); 
-		for (int i = 0; i <notes.length; i++) 
-		{ 
-			if (noteCounter[i] != 0) 
-			{
-				System.out.println(noteCounter[i]+" notes of "+notes[i]); 
-				total = total+noteCounter[i];
-			}
-		}
-		System.out.println("\nTotal Number of Notes: "+total);
+		return countNotes;
 	}
 }

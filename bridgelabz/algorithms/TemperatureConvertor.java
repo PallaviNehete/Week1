@@ -12,25 +12,23 @@ public class TemperatureConvertor
 	{
 		Utility u = new Utility();
 		double celsius1, fahrenheit1, celsius2, fahrenheit2;
-		System.out.println("TEMPERATURE CONVERTOR");
-		System.out.println();
+		System.out.println("TEMPERATURE CONVERTOR\n");
 		System.out.println("1. Celsius to Fahrenheit");
-		System.out.println("2. Fahrenheit to Celsius");
-		System.out.println();
+		System.out.println("2. Fahrenheit to Celsius\n");
 		System.out.print("Enter your choice: ");
-		int ch = u.inputInteger();
-		switch(ch)
+		int choice = u.inputInteger();
+		switch(choice)
 		{
 		case 1: 
-			System.out.print("Enter temperature in calsius: ");
+			System.out.print("\nEnter temperature in calsius: ");
 			celsius1 = u.inputDouble();
-			fahrenheit1=TemperatureConvertor.celsiusToFahrenheit(celsius1);
+			fahrenheit1 = TemperatureConvertor.celsiusToFahrenheit(celsius1);
 			System.out.println("Temperature in Fahrenheit is "+fahrenheit1);
 			break;
 		case 2:
-			System.out.print("Enter temperature in Fahrenheit: ");
+			System.out.print("\nEnter temperature in Fahrenheit: ");
 			fahrenheit2 = u.inputDouble();
-			celsius2= TemperatureConvertor.fahrenheitToCelsius(fahrenheit2);
+			celsius2 = TemperatureConvertor.fahrenheitToCelsius(fahrenheit2);
 			System.out.println("Temperature inn Calsius is "+celsius2);
 			break;
 		default:
@@ -40,7 +38,7 @@ public class TemperatureConvertor
 	}
 	/**
 	 * method to Convert temperature from Celsius to Fahrenheit.
-	 * @param celsius1 : temperature in celsius.
+	 * @param celsius1 : temperature in celsius to convert in fahrenheit.
 	 * @return :  temperature in fahrenheit.
 	 */
 	public static double celsiusToFahrenheit(double celsius1)
@@ -50,7 +48,7 @@ public class TemperatureConvertor
 	}
 	/**
 	 * Convert temperature from  Fahrenheit to Celsius.
-	 * @param fahrenheit2 :  temperature in fahrenheit.
+	 * @param fahrenheit2 :  temperature in fahrenheit to convert in celsius.
 	 * @return :  temperature in celsius.
 	 */
 	public static double fahrenheitToCelsius (double fahrenheit2)

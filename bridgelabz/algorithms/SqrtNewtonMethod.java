@@ -10,26 +10,30 @@ public class SqrtNewtonMethod
 {
 	public static void main(String[] args) 
 	{
-		Utility u = new Utility();
+		Utility utility = new Utility();
 		System.out.print("Enter Number to find square root: ");
-		double c = u.inputDouble();
-		if(c >= 0)
+		double number = utility.inputDouble();
+		if(number >= 0)
 		{
-			sqrt(c);
+			double squareRoot = squareRoot(number);
+			System.out.println("\n Square Root of "+number+" is: "+squareRoot);
 		}
 		else
-		{
 			System.out.println("\n *Please Enter Non-Negative Number");
-		}
 	}
-	public static void sqrt(double c)
+	/**
+	 * To compute square root of a nonnegative number c given in the input using Newton's method.
+	 * @param number : number to find square root of nonnegative number c given in the input using Newton's method.
+	 * @return : square root of a non negative number.
+	 */
+	public static double squareRoot(double number)
 	{
 		double epsilon = 1e-15;   
-		double t = c;            	
-		while (Math.abs(t-c/t) > epsilon*t)
+		double root = number;            	
+		while (Math.abs(root-number/root) > epsilon*root)
 		{
-			t = (c/t+t) /2;
+			root = (number/root+root) /2;
 		}
-		System.out.println("\n Square Root of "+c+" is: "+t);
+		return root;
 	}
 }

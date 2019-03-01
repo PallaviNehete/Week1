@@ -19,11 +19,19 @@ public class MonthlyPayment
 		double rate = utility.inputDouble();
 		System.out.print("Your Mothly Payment is: "+monthPayment(payment,year,rate));
 	}
-	public static double monthPayment(double p, double y, double r)
+	
+	/**
+	 * method to calculate Monthly Payment that reads 3 command-line arguments P, Y & R and calculates the monthly payments.
+	 * @param principalAmount : Principal loan amount. 
+	 * @param year : Number of Years
+	 * @param rate : Rate of Interest.
+	 * @return : monthly payment.
+	 */
+	public static double monthPayment(double principalAmount, double year, double rate)
 	{
-		double n = 12*y;
-		double r0 = r/(12 * 100);
-		double payment = p*r0/(1-Math.pow((1 + r0),-n));
+		double n = 12*year;
+		double r = rate/(12 * 100);
+		double payment = principalAmount * r/(1-Math.pow((1 + r),-n));
 		return payment;
 	}
 }

@@ -9,7 +9,7 @@ public class OrderedList
 		Utility utility=new Utility();
 		UnOrderLinkedList list = new UnOrderLinkedList();
 		File file = new File("/home/admin1/ReadWrite/ordered.txt");
-		String string = utility.readFromFile(file);
+	/*	String string = utility.readFromFile(file);
 		System.out.println("Reading from File: "+string);
 		String arr[] = string.split(" ");
 		utility.InsertionSortString(arr);
@@ -17,7 +17,7 @@ public class OrderedList
 		for(int i=0; i<arr.length; i++)
 		{
 			list.insert(arr[i]);
-		}
+		}*/
 		list.display();
 		System.out.print("\nEnter Number: ");
 		int search = utility.inputInteger();
