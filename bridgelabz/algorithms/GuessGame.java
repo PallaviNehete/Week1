@@ -33,8 +33,7 @@ public class GuessGame
 	{
 		int N = (int) Math.pow(2, number);
 		int low=0, high=N-1, mid=0;
-		System.out.println("Your Number is present in Between "+low+" to "+high);
-		
+		System.out.println("Your Number is present in Between "+low+" to "+high);	
 		while(low<high)
 		{
 			System.out.println("Is number is between "+low+" to "+high+"?");

@@ -29,12 +29,8 @@ public class BalancedParentheses
 			}
 		}
 		if(push == pop)
-		{
 			System.out.println("\nExpression is balanced");
-		}
 		else
-		{
 			System.out.println("\nExpression is unbalanced");
-		}
 	}
 }

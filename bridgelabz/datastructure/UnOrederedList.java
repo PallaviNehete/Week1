@@ -22,7 +22,7 @@ public class UnOrederedList
 		Utility utility = new Utility();
 		UnOrderLinkedList list = new UnOrderLinkedList();
 		UnOrederedList unorder = new UnOrederedList();
-		File file=new File("/home/admin1/Pallavi-workspace/Programs/src/com/bridgelabz/files/unorder.txt");
+		File file = new File("/home/admin1/Pallavi-workspace/Programs/src/com/bridgelabz/files/unorder.txt");
 		String string = unorder.readFromFile(file);
 		System.out.println("Reading from File: "+string);
 		String array[] = string.split(",");
@@ -34,12 +34,12 @@ public class UnOrederedList
 		list.display();
 		System.out.print("\n\nEnter Word: ");
 		String search = utility.inputString();
-		boolean flag = list.searchString(search);
+		boolean flag = list.search(search);
 		if(!flag)
 		{
 			System.out.println("Word not found Hence added into file");
 			list.append(search);
-			unorder.appendFile(file,search);  
+			unorder.appendFile(file,search); 
 			list.display();
 		}
 		else
@@ -48,8 +48,8 @@ public class UnOrederedList
 			list.remove(search);
 			for(int i=0; i<array.length-1; i++)
 			{
-				array[i] = list.pop(0);
-				//	System.out.println("Array:  "+i+"\t"+array[i]);
+				array[i] = (String) list.pop(0);
+			//	System.out.println("Array:  "+i+"\t"+array[i]);
 				unorder.writeIntoFile(file, array);
 			}
 			String s = unorder.readFromFile(file);
@@ -62,13 +62,14 @@ public class UnOrederedList
 		String readString="";
 		String temp;
 		FileReader ip = new FileReader(file);
-		BufferedReader br =new BufferedReader(ip);
+		BufferedReader br = new BufferedReader(ip);
 		while((temp=br.readLine())!=null)
 		{
 			readString = readString + temp;
 		}
 		return readString;
 	}
+	
 	/**
 	 * Method to write in File. 
 	 * old containt of file is replaced with new containt.
@@ -85,13 +86,13 @@ public class UnOrederedList
 		}
 		filewriter.close();
 	}
+	
 	/**
 	 * Method to write String in file without replacing old containt of file.
 	 * @param file : file name
 	 * @param search : search word is appended in file.
 	 * @throws IOException 
 	 */
-
 	public void appendFile(File file,String search) throws IOException
 	{
 		FileWriter fileWriter = null;
@@ -103,7 +104,7 @@ public class UnOrederedList
 			bufferWriter = new BufferedWriter(fileWriter);
 			printWriter = new PrintWriter(bufferWriter);
 			printWriter.println(","+search);
-			System.out.println("Data Successfully appended into file");
+			System.out.println("\nData Successfully appended into file");
 			printWriter.flush();
 		} 
 		catch (Exception e) 

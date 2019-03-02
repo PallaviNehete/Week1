@@ -66,7 +66,7 @@ public class BankingQueueClass
 	{
 		if(!IsEmpty())
 		{
-			int count = (rear + maxSize - front) % maxSize+1;
+			int count = (rear + maxSize - front) % maxSize + 1;
 			System.out.println(count+" Peoples are in queue.");
 		}
 		else

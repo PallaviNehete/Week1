@@ -2,12 +2,16 @@ package com.bridgelabz.datastructure;
 public class UnOrderLinkedList 
 {
 	int size;
-	Node<String> start;
+	Node start;
 	public UnOrderLinkedList()
 	{
 		size = 0;
 		start = null;
 	}
+	/**
+	 * checks Linked is Empty or not.
+	 * @return : returns true if list is empty otherwise returns false.
+	 */
 	public boolean isEmpty()
 	{
 		if(start == null)
@@ -15,28 +19,37 @@ public class UnOrderLinkedList
 		else
 			return false;
 	}
+	/**
+	 * gives size of an list.
+	 * @return : size of list.
+	 */
 	public int getListSize()
 	{
 		return size;
 	}
 
-	// Insert element at First.		add
-	public void add(String data)
+	/**
+	 * Insert element at First in Linked list.
+	 * @param data : the item which want to added at first position in list.
+	 */
+	public void addAtFirst(Object data)
 	{
-		Node<String> node;
-		node = new Node<String>();
+		Node node;
+		node = new Node();
 		node.setData(data);
 		node.setNext(start);
 		start = node;
 		size++;
 	}
 
-	// Insert element at Last.		append
-	public void append(String data)
+	/**
+	 * Insert element at Last in Linked list.
+	 * @param data : the item which want to added at last position in list.
+	 */
+	public void append(Object data)
 	{
-		Node<String> node;
-		Node<String> temp;
-		node = new Node<String>();
+		Node node, temp;
+		node = new Node();
 		node.setData(data);
 		temp = start;
 		if(temp == null)
@@ -50,17 +63,21 @@ public class UnOrderLinkedList
 		size++;
 	}
 
-	// Insert element at given position.
-	public void insertAtPos(String data, int position)
+	/**
+	 * Insert element at given position in Linked list. 
+	 * @param data : the item which want to added at given position in list.
+	 * @param position : position of a new data.
+	 */
+	public void insertAtPos(Object data, int position)
 	{
 		if(position == 1)
-			add(data);
+			addAtFirst(data);
 		else if(position == size+1)
 			append(data);
-		else if(position>1 && position<=size)
+		else if(position > 1 && position <= size)
 		{
-			Node<String> n,t;
-			n = new Node<String>(data ,null);
+			Node n,t;
+			n = new Node(data ,null);
 			t = start;
 			for(int i=1; i<position-1; i++)
 				t = t.getNext();
@@ -71,8 +88,27 @@ public class UnOrderLinkedList
 		else
 			System.out.println("Insertion not possible at position "+position);
 	}
-
-	// delete First element.
+	
+	public void addOrdered(Object data)
+	{
+		Node node=start, tempNode;
+		if(isEmpty())
+		{
+			addAtFirst(data);
+		}
+		else
+		{
+			if(node.getData().hashCode() > data.hashCode())
+			{
+				
+				
+			}
+		}
+	}
+	
+	/**
+	 * Delete First element from Linked List.
+	 */
 	public void deleteFirst()
 	{
 		if(start == null)
@@ -84,7 +120,9 @@ public class UnOrderLinkedList
 		}
 	}
 
-	//delete Last element.
+	/**
+	 * Delete Last element from Linked List.
+	 */
 	public void deleteLast()
 	{
 		if(start == null)
@@ -96,7 +134,7 @@ public class UnOrderLinkedList
 		}
 		else
 		{
-			Node<String> t;
+			Node t;
 			t = start;
 			for(int i=1; i<size-1; i++)
 				t = t.getNext();
@@ -105,7 +143,10 @@ public class UnOrderLinkedList
 		}
 	}
 
-	// delete element from given position.
+	/**
+	 * Delete element from given position from Linked list.
+	 * @param pos : position of data which want to delete.
+	 */
 	public void deleteAtPos(int pos)
 	{
 		if(start == null)
@@ -118,7 +159,7 @@ public class UnOrderLinkedList
 			deleteLast();
 		else
 		{
-			Node<String> t,t1;
+			Node t,t1;
 			t = start;
 			for(int i=1; i<pos-1; i++)
 				t = t.getNext();
@@ -128,11 +169,14 @@ public class UnOrderLinkedList
 		}
 	}
 
-	// Remove element.
-	public void remove(String s)
+	/**
+	 * Remove element from Linked list.
+	 * @param s : element which want to delete from Linked List.
+	 */
+	public void remove(Object s)
 	{
-		Node<String> current = start;				
-		Node<String> previous = null;
+		Node current = start;				
+		Node previous = null;
 		while (current != null)			
 		{
 			if (current.data.equals(s))			
@@ -148,11 +192,14 @@ public class UnOrderLinkedList
 		size--;
 	}
 
-	// removes and return last element.	
-	public String pop()
+	/**
+	 * Removes & return last element of a Linked list.	
+	 * @return : returns last element of Linked list.
+	 */
+	public Object pop()
 	{
-		Node<String> t = start;
-		String s = null;
+		Node t = start;
+		Object s = null;
 		if(start == null)
 		{
 			System.out.println("List Is Already Empty");
@@ -161,35 +208,39 @@ public class UnOrderLinkedList
 		{
 			start = start.next;
 			size--;
-			return (String) t.data;
+			return t.data;
 		}
 		else
 		{
 			t = start;
 			for(int i=1; i<size-1; i++)
 			{
-				s=(String) t.data;
+				s = t.data;
 				t = t.getNext();
 			}
-			s=(String) t.getData();
+			s = t.getData();
 			t.setNext(null);
 			size--;
 		}
-		return (String) t.data;
+		return t.data;
 	}
 
-	// removes and return position element.	
-	public String pop(int pos)
+	/**
+	 * Removes element from given position and returns element..	
+	 * @param pos : position of element which want to pop.
+	 * @return : poped element.
+	 */
+	public Object pop(int pos)
 	{
 		int index = 0;
-		Node<String> n = start;
+		Node n = start;
 		if (pos == 0) 
 		{
 			start = start.next;
 			size--;
-			return (String) n.data;
+			return n.data;
 		}
-		Node<String> prev = null;
+		Node prev = null;
 		while (index != pos)
 		{
 			prev = n;
@@ -198,47 +249,43 @@ public class UnOrderLinkedList
 		}
 		prev.next = n.next;
 		size--;
-		return (String) n.data;
-	}
-	public boolean searchString(String val)
-	{
-		Node<String> t = start;
-		while(t != null)
-		{
-			if(val.compareToIgnoreCase((String) t.getData()) == 0)
-				return true;
-			t = t.getNext();
-		}
-		return false;
+		return n.data;
 	}
 
-	public boolean searchInt(Object val)
+	/**
+	 * method to search given element from Linked list.
+	 * @param val : element which want to search.
+	 * @return : returns true if element found otherwise returns false.
+	 */
+	public boolean search(Object val)
 	{
-		Node<String> t = start;
-		while(t != null)
+		Node t = start;
+		while(t.next != null)
 		{
-			if(val == t.getData())
-				return true;
-			t = t.getNext();
+			if(t.getData().hashCode() == val.hashCode())
+			{
+				return true;					// element found
+			}
+			t = t.next;
 		}
-		return false;
+		return false;							// element not found.
 	}
+	
+	/**
+	 * method to display all elements of an Linked list. 
+	 */
 	public void display()
 	{
 		if(isEmpty())
 			System.out.println("List is Empty");
 		else
 		{
-			Node<String> tempNode = start;
+			Node tempNode = start;
 			while(tempNode!= null) 
 			{
 				System.out.print(tempNode.data+" ");
 				tempNode = tempNode.next;
 			}
 		}
-	}
-	public static void main(String[] args) {
-		UnOrderLinkedList ul = new UnOrderLinkedList();
-		ul.append(data);
 	}
 }
