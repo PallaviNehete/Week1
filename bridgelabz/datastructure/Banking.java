@@ -75,9 +75,9 @@ public class Banking
 			}
 			System.out.println("\n*Do you want to continue? ");
 			System.out.println("(type yes if you want to continue)");
-			check=utility.inputString();
+			check = utility.inputString();
 			System.out.println("\n============================================");
 		}
-		while(check.compareToIgnoreCase("yes")==0);
+		while(check.compareToIgnoreCase("yes") == 0);
 	}
 }

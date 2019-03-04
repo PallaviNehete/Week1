@@ -340,9 +340,9 @@ public class Utility
 	
 	/**
 	 * method to find to numbers are in anagram or not.
-	 * @param number1 : 
-	 * @param number2
-	 * @return
+	 * @param number1 : First number. 
+	 * @param number2 : Second number.
+	 * @return : return true if numbers are anagram otherwise gives false.
 	 */
 	public static boolean anagram(int number1, int number2) 
 	{
@@ -351,9 +351,7 @@ public class Utility
 		for (int i=0; i<n2count.length; i++) 
 		{
 			if (n1count[i] != n2count[i]) 
-			{
 				return false;
-			}
 		}
 		return true;
 	}
@@ -488,9 +486,7 @@ public class Utility
 			mid = (high+low)/2;
 		}
 		if(low > high)
-		{
 			System.out.println("Number not Found");
-		}
 	}
 
 	/**

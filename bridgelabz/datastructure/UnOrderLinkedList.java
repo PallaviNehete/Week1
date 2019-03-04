@@ -3,11 +3,16 @@ public class UnOrderLinkedList
 {
 	int size;
 	Node start;
+	
+	/** 
+	 * constructor to declare variables.
+	 */
 	public UnOrderLinkedList()
 	{
 		size = 0;
 		start = null;
 	}
+	
 	/**
 	 * checks Linked is Empty or not.
 	 * @return : returns true if list is empty otherwise returns false.
@@ -19,6 +24,7 @@ public class UnOrderLinkedList
 		else
 			return false;
 	}
+	
 	/**
 	 * gives size of an list.
 	 * @return : size of list.
@@ -89,22 +95,7 @@ public class UnOrderLinkedList
 			System.out.println("Insertion not possible at position "+position);
 	}
 	
-	public void addOrdered(Object data)
-	{
-		Node node=start, tempNode;
-		if(isEmpty())
-		{
-			addAtFirst(data);
-		}
-		else
-		{
-			if(node.getData().hashCode() > data.hashCode())
-			{
-				
-				
-			}
-		}
-	}
+
 	
 	/**
 	 * Delete First element from Linked List.
@@ -147,39 +138,39 @@ public class UnOrderLinkedList
 	 * Delete element from given position from Linked list.
 	 * @param pos : position of data which want to delete.
 	 */
-	public void deleteAtPos(int pos)
+	public void deleteAtPos(int position)
 	{
 		if(start == null)
 			System.out.println("List is Already Empty");
-		else if(pos<1 || pos>size)
+		else if(position<1 || position>size)
 			System.out.println("Invalid Position");
-		else if(pos == 1)
+		else if(position == 1)
 			deleteFirst();
-		else if(pos == size)
+		else if(position == size)
 			deleteLast();
 		else
 		{
-			Node t,t1;
-			t = start;
-			for(int i=1; i<pos-1; i++)
-				t = t.getNext();
-			t1 = t.getNext();
-			t.setNext(t1.getNext());
+			Node node, temp;
+			node = start;
+			for(int i=1; i<position-1; i++)
+				node = node.getNext();
+			temp = node.getNext();
+			node.setNext(temp.getNext());
 			size--;
 		}
 	}
 
 	/**
 	 * Remove element from Linked list.
-	 * @param s : element which want to delete from Linked List.
+	 * @param element : element which want to delete from Linked List.
 	 */
-	public void remove(Object s)
+	public void remove(Object element)
 	{
 		Node current = start;				
 		Node previous = null;
 		while (current != null)			
 		{
-			if (current.data.equals(s))			
+			if (current.data.equals(element))			
 			{
 				if (previous == null)		
 					start = current.next;
@@ -198,7 +189,7 @@ public class UnOrderLinkedList
 	 */
 	public Object pop()
 	{
-		Node t = start;
+		Node node = start;
 		Object s = null;
 		if(start == null)
 		{
@@ -208,65 +199,65 @@ public class UnOrderLinkedList
 		{
 			start = start.next;
 			size--;
-			return t.data;
+			return node.data;
 		}
 		else
 		{
-			t = start;
+			node = start;
 			for(int i=1; i<size-1; i++)
 			{
-				s = t.data;
-				t = t.getNext();
+				s = node.data;
+				node = node.getNext();
 			}
-			s = t.getData();
-			t.setNext(null);
+			s = node.getData();
+			node.setNext(null);
 			size--;
 		}
-		return t.data;
+		return node.data;
 	}
 
 	/**
 	 * Removes element from given position and returns element..	
-	 * @param pos : position of element which want to pop.
+	 * @param position : position of element which want to pop.
 	 * @return : poped element.
 	 */
-	public Object pop(int pos)
+	public Object pop(int position)
 	{
 		int index = 0;
-		Node n = start;
-		if (pos == 0) 
+		Node node = start;
+		if (position == 0) 
 		{
 			start = start.next;
 			size--;
-			return n.data;
+			return node.data;
 		}
 		Node prev = null;
-		while (index != pos)
+		while (index != position)
 		{
-			prev = n;
-			n = n.next;
+			prev = node;
+			node = node.next;
 			index++;
 		}
-		prev.next = n.next;
+		prev.next = node.next;
 		size--;
-		return n.data;
+		return node.data;
 	}
 
 	/**
 	 * method to search given element from Linked list.
-	 * @param val : element which want to search.
+	 * @param search : element which want to search.
 	 * @return : returns true if element found otherwise returns false.
 	 */
-	public boolean search(Object val)
+	public boolean search(Object search)
 	{
-		Node t = start;
-		while(t.next != null)
+		Node node = start;
+		while(node != null)
 		{
-			if(t.getData().hashCode() == val.hashCode())
+			if(node.getData().hashCode() == search.hashCode())
 			{
 				return true;					// element found
 			}
-			t = t.next;
+			node = node.next;
 		}
 		return false;							// element not found.
 	}

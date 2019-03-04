@@ -12,13 +12,14 @@ import java.io.IOException;
 import com.bridgelabz.utility.Utility;
 public class BinarySearchFile 
 {
-	static StringBuffer stringBuffer = new StringBuffer();
-	public static void main(String[] args)
+	 
+	public static void main(String[] args) throws IOException
 	{
 		Utility utility = new Utility();
 		File file = new File("/home/admin1/ReadWrite/binarySearch.txt");
-		System.out.println(stringBuffer);	
-		String s1 = stringBuffer.toString();
+		StringBuffer string =readFile(file);
+		System.out.println(string);	
+		String s1 = string.toString();
 		String array[] = s1.split(",");
 		utility.insertionSortString(array);
 		System.out.println("Sorted String: ");
@@ -31,10 +32,12 @@ public class BinarySearchFile
 	/**
 	 * method to read file.
 	 * @param file : file name
+	 * @return 
 	 * @throws : IOException
 	 */
-	public void readFile(File file) throws IOException
+	public static StringBuffer readFile(File file) throws IOException
 	{
+		StringBuffer stringBuffer = new StringBuffer();
 		FileInputStream input = new FileInputStream(file);
 		int i = 0;
 		while((i = input.read())!=-1)
@@ -43,5 +46,6 @@ public class BinarySearchFile
 			String string = Character.toString(word);
 			stringBuffer = stringBuffer.append(string);
 		}
+		return stringBuffer;
 	}
 }

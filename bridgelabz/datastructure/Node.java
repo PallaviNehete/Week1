@@ -1,4 +1,3 @@
-// new
 package com.bridgelabz.datastructure;
 public class Node 
 {
