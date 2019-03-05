@@ -95,6 +95,25 @@ public class UnOrderLinkedList
 			System.out.println("Insertion not possible at position "+position);
 	}
 	
+	public void addOrdered(Object data)
+	{
+		Node node = start, tempNode;
+		if(isEmpty())
+		{
+			addAtFirst(data);
+		}
+		else
+		{
+			if(node.getData().hashCode() > data.hashCode())
+			{
+				tempNode = node;
+				node = (Node) data;
+				
+				
+			}
+		}
+	}
+	
 	/**
 	 * Delete First element from Linked List.
 	 */

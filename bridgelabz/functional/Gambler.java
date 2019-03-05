@@ -35,7 +35,7 @@ public class Gambler
 	 */
 	public double percentageWin(int stake, int goal, int trials)
 	{
-		int  win=0;
+		int  win = 0;
 		for (int i=0; i<trials; i++) 
 		{
 			int cash = stake;
