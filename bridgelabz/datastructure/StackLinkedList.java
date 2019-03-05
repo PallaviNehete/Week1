@@ -1,3 +1,5 @@
+// LIFO.
+
 package com.bridgelabz.datastructure;
 public class StackLinkedList 
 {
@@ -37,24 +39,24 @@ public class StackLinkedList
 	 * function to return top element in a stack 
 	 * @return : top element of stack.
 	 */
-	public Object peek()
+	public int peek()
 	{
 		if(isEmpty())
 			System.out.println("List is Empty");
 		else
-			return top.data;
+			return (int) top.data;
 		return -1;
 	}
 	
 	/**
 	 * function to add data in the stack at top position.
-	 * @param data : data which want to add in stack.
+	 * @param data : element which want to add in stack.
 	 */
-	public void push(Object data)
+	public void push(Object element)
 	{
 		Node node;
 		node = new Node();
-		node.setData(data);
+		node.setData(element);
 		node.setNext(top);
 		top = node;
 		size++;
@@ -73,6 +75,28 @@ public class StackLinkedList
 			size--;
 		}
 	}
+	
+	/**
+	 * Method to get a data of given position. 
+	 * @param position : position.
+	 * @return : returns data of given position.
+	 */
+	public int get(int position)
+	{
+		int index = 0;
+		Node node = top;
+		if (position == 0) 
+			return (int) node.data;
+		Node prev = null;
+		while (index != position)
+		{
+			prev = node;
+			node = node.next;
+			index++;
+		}
+		return (int)node.data;
+	}
+	
 	/**
 	 * function to display all elements of stack.
 	 */
@@ -90,18 +114,4 @@ public class StackLinkedList
 			}
 		}
 	}
-	/*public static void main(String[] args) {
-		StackLinkedList s = new StackLinkedList();
-		s.push(2);
-		s.push(5);
-		s.push(8);
-		s.push(9);
-		s.push(10);
-		s.display();
-		System.out.println();
-		s.display();
-		System.out.println();
-		System.out.println(s.peek());
-		System.out.println(s.isEmpty());
-	}*/
 }

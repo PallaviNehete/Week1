@@ -106,9 +106,9 @@ public class Utility
 	}
 
 	/**
-	 * method to check wheather it is prime factor or not.
-	 * @param number
-	 * @return prime numbers.
+	 * Method to check whether it is prime factor or not.
+	 * @param number : number to find factors.
+	 * @return : prime factors.
 	 */
 	public int checkPrimeFactor(int number)
 	{
@@ -126,7 +126,7 @@ public class Utility
 	}
 
 	/**
-	 * method to find the roots of the equation a*x*x + b*x + c. 
+	 * Method to find the roots of the equation a*x*x + b*x + c. 
 	 * @param a : 1st co-efficient of quadratic equation.
 	 * @param b : 2nd co-efficient of quadratic equation.
 	 * @param c : constant co-efficient of quadratic equation.
@@ -163,7 +163,7 @@ public class Utility
 	}
 	
 	/**
-	 * method to find day.
+	 * Method to find day.
 	 * @param year : taken from user to find day.
 	 * @param month : taken from user to find day.
 	 * @param date : taken from user to find day.
@@ -179,7 +179,7 @@ public class Utility
 	}
 	
 	/**
-	 * to find binary representation of a decimal number.
+	 * To find binary representation of a decimal number.
 	 * @param number : number to find binary representation.
 	 * @return : binary representation of a decimal number.
 	 */
@@ -199,7 +199,7 @@ public class Utility
 	}
 	
 	/**
-	 * method to swap binary nibbles.
+	 * Method to swap binary nibbles.
 	 * @param binary : binary number.
 	 * @return : binary number after swap nibbles.
 	 */
@@ -220,7 +220,7 @@ public class Utility
 	}
 	
 	/**
-	 * method to convert binary to decimal.
+	 * Method to convert binary to decimal.
 	 * @param swapNo : swaped binary number.
 	 * @return : decimal representation of swapNo.
 	 */
@@ -269,8 +269,8 @@ public class Utility
 	}
 
 	/**
-	 * method to find prime palindrome.
-	 * @param number : number to check wheather it is prime palindrome or not.
+	 * Method to find prime palindrome.
+	 * @param number : number to check whether it is prime palindrome or not.
 	 */
 	public void primePlindrom(int number)
 	{
@@ -304,7 +304,7 @@ public class Utility
 	}
 	
 	/**
-	 * method to find prime anagrams.
+	 * Method to find prime anagrams.
 	 */
 	public void primeAnagrams() 
 	{
@@ -339,7 +339,7 @@ public class Utility
 	}
 	
 	/**
-	 * method to find to numbers are in anagram or not.
+	 * Method to find to numbers are in anagram or not.
 	 * @param number1 : First number. 
 	 * @param number2 : Second number.
 	 * @return : return true if numbers are anagram otherwise gives false.
@@ -357,7 +357,7 @@ public class Utility
 	}
 	
 	/**
-	 * method to count digits of number.
+	 * Method to count digits of number.
 	 * @param number : number to count digits.
 	 * @return : digits of a number.
 	 */
@@ -369,7 +369,7 @@ public class Utility
 		{
 			int remender = temp%10;
 			count[remender]++;
-			temp=temp/10;
+			temp = temp/10;
 		}
 		return count;
 	}

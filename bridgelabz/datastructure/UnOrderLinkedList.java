@@ -95,8 +95,6 @@ public class UnOrderLinkedList
 			System.out.println("Insertion not possible at position "+position);
 	}
 	
-
-	
 	/**
 	 * Delete First element from Linked List.
 	 */

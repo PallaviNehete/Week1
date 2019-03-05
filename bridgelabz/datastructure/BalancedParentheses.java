@@ -1,3 +1,10 @@
+/**
+ * created by: Pallavi Nehete.
+ * Date: 27/02/2019.
+ * Purpose: Take an Arithmetic Expression as an input
+ * where parentheses are used to order the performance of operations.
+ * Ensure parentheses must appear in a balanced fashion.
+ */
 
 package com.bridgelabz.datastructure;
 import com.bridgelabz.utility.Utility;
