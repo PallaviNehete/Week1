@@ -55,7 +55,7 @@ public class Calender2D
 	 * @param year : year entered by user.
 	 * @return : returns starting date of month.
 	 */
-	int dayOfWeek(int month, int year) 
+	public int dayOfWeek(int month, int year) 
 	{
 		int d = 1;
 		int y0 = year - (14 - month) / 12;
@@ -76,7 +76,7 @@ public class Calender2D
 		System.out.println("\nSun	Mon	Tue	Wed	Thu	Fri	Sat");
 		if(month == 2 && utility.isLeapYear(year))				// set 29 days for February for Leap year. 
 		{	
-			days[1]=29;
+			days[1] = 29;
 		}
 		for(int i=0; i<startingDay; i++)						// spacing for before starting days.
 		{

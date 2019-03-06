@@ -1,9 +1,9 @@
 package com.bridgelabz.datastructure;
-public class UnOrderLinkedList 
+public class UnOrderLinkedList <T extends Comparable<T>>
 {
 	int size;
 	Node start;
-	
+	Node end;
 	/** 
 	 * constructor to declare variables.
 	 */
@@ -114,13 +114,13 @@ public class UnOrderLinkedList
 	}*/
 	public void sorted(Object data)
 	{
-		Node node = start, newNode = null;
+		Node node = start, newNode = end;
 		if(isEmpty())
 		{
 			addAtFirst(data);
 		}
 		Node current = start;
-		while(current.next != null && current.next.data.hashCode() < newNode.data.hashCode())
+		while((current.next != null) && (current.next.data.hashCode() < newNode.data.hashCode()))
 		{
 			current = current.next;
 		}
@@ -129,19 +129,19 @@ public class UnOrderLinkedList
 	}
 	public void addOrdered(Object data)
 	{
-		Node node = start, tempNode;
+		Node node = start, tempNode = null;
+		size++;
 		if(isEmpty())
 		{
 			addAtFirst(data);
 		}
 		else
 		{
-			if(node.getData().hashCode() > data.hashCode())
+			if(node.getData().hashCode() < data.hashCode())
 			{
-				tempNode = node;
-				node = (Node) data;
-				
-				
+				tempNode.next = start;
+				start = tempNode;
+			
 			}
 		}
 	}
@@ -336,9 +336,7 @@ public class UnOrderLinkedList
 		l.append(6);
 		l.display();
 		System.out.println();
-		l.sorted(8);
-		l.sorted(7);
-		l.sorted(9);
+		l.sorted(3);
 		l.display();
 	}
 }

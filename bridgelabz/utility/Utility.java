@@ -282,7 +282,8 @@ public class Utility
 		}
 		return 0;
 	}
-
+	
+	
 	/**
 	 * Method to find prime palindrome.
 	 * @param number : number to check whether it is prime palindrome or not.
@@ -388,6 +389,28 @@ public class Utility
 		}
 		return count;
 	}
+	
+	/**
+	 * Method to check whether number is prime or not.
+	 * @param number : number
+	 * @return : returns true if number is prime otherwise gives false.
+	 */
+	public static boolean isPrime(int number)
+	{  
+		boolean flag = true;
+		if (number<=1) 
+		{  
+			flag = false;  
+		}  
+		for (int i=2; i<number; i++)
+		{  
+			if (number%i == 0) 
+			{  
+				flag = false;  
+			}  
+		}  
+		return flag;  
+	}  
 	
 	/**
 	 * Method to Sort Integers using Insertion sort.

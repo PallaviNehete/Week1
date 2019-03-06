@@ -89,6 +89,21 @@ public class QueueLinkedList
 		return (int)node.data;
 	}
 	
+	public Object getObject(int position)
+	{
+		int index = 0;
+		Node node = start;
+		if (position == 0) 
+			return (int)node.data;
+		Node prev = null;
+		while (index != position)
+		{
+			prev = node;
+			node = node.next;
+			index++;
+		}
+		return node.data;
+	}
 	/**
 	 * method to display all elements of an Linked list. 
 	 */
@@ -109,6 +124,13 @@ public class QueueLinkedList
 	public static void main(String[] args) 
 	{
 		QueueLinkedList q = new QueueLinkedList();
+		/*q.enqueue("l");
+		q.enqueue("g");
+		q.enqueue("k");
+		q.enqueue("p");
+		q.display();
+		System.out.println();
+		System.out.println(q.getObject(2));*/
 		q.enqueue(5);
 		q.enqueue(8);
 		q.enqueue(7);

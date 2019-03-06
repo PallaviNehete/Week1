@@ -1,11 +1,19 @@
-
+/**
+ * created by: Pallavi Nehete.
+ * Date: 06/03/2019.
+ * Purpose: Take a range of 0-1000 Numbers & find Prime numbers in that range.
+ * 			Store prime numbers in a 2D Array, first dimension represents range 0-100, 100-200, & so on.
+ * 			While the second dimension represents the prime numbers in that range.
+ */
 
 package com.bridgelabz.datastructure;
+import com.bridgelabz.utility.Utility;
 public class Prime2DArray 
 {
 	public static void main(String[] args)
 	{
-		int prime2DMatrix[][] = twoDprime();
+		Prime2DArray prime = new Prime2DArray();
+		int prime2DMatrix[][] = prime.twoDprime();
 		for(int i=0; i<prime2DMatrix.length; i++)
 		{
 			for(int j=0; j<prime2DMatrix[0].length; j++)
@@ -20,13 +28,13 @@ public class Prime2DArray
 	 * to find prime 2D matrix.
 	 * @return : returns prime 2D matrix.
 	 */
-	public static int[][] twoDprime()
+	public int[][] twoDprime()
 	{
 		int primeMatrix[][] = new int [10][25];
 		int count1=0, count2=0, count3=0, count4=0, count5=0, count6=0, count7=0, count8=0, count9=0, count10=0;
 		for(int i=2; i<1000; i++)
 		{
-			if(isPrime(i))
+			if(Utility.isPrime(i))
 			{
 				if(i>0 && i<100)
 				{
@@ -82,26 +90,4 @@ public class Prime2DArray
 		}
 		return primeMatrix;
 	}
-	
-	/**
-	 * Method to check number is prime or not.
-	 */
-	public static boolean isPrime(int n)
-	{  
-		boolean flag = true;
-		if (n<=1) 
-		{  
-			flag = false;  
-		}  
-		for (int i=2; i<n; i++)
-		{  
-			if (n%i == 0) 
-			{  
-				flag = false;  
-			}  
-		}  
-		return flag;  
-	}  
 }
-
-
