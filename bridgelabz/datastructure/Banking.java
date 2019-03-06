@@ -18,10 +18,10 @@ public class Banking
 		{
 			System.out.println("\n\t~~~~~ BANKING CASH COUNTER ~~~~~");
 			System.out.println("\t      ====================\n");
-			System.out.println("1.Deposit");
-			System.out.println("2.Withdraw");
-			System.out.println("3.Number of people in the Queue ");
-			System.out.println("4.Exit\n");
+			System.out.println("1. Deposit");
+			System.out.println("2. Withdraw");
+			System.out.println("3. Number of people in the Queue ");
+			System.out.println("4. Exit\n");
 			System.out.print("Enter Your Choice: ");
 			int choice = utility.inputInteger();
 			switch(choice)

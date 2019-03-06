@@ -243,6 +243,21 @@ public class Utility
 	}
 	
 	/**
+	 * To find factorial of a given number.
+	 * @param number : number
+	 * @return : returns factorial of a number.
+	 */
+	public static long factorial(int number)
+	{
+		long factorial = 1;
+		for(int i=1; i<=number; i++)
+		{
+			factorial = factorial*i;
+		}
+		long absFactorial = Math.abs(factorial);
+		return absFactorial;
+	}
+	/**
 	 * Method to check for Prime Numbers.
 	 * @param number : start position of prime numbers.
 	 * @return : prime number

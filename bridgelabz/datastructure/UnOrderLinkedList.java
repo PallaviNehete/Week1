@@ -94,7 +94,39 @@ public class UnOrderLinkedList
 		else
 			System.out.println("Insertion not possible at position "+position);
 	}
-	
+	/*public static Node SortedInsert(Node head, Node newNode)
+	{
+		// Special case for the head end
+		if (head == null || head.data >= newNode.data)
+		{
+			newNode.next = head;
+			head = newNode;
+			return head;
+		}
+		// Locate the node before the point of insertion
+		Node current = head;
+		while (current.next != null && current.next.data < newNode.data) {
+			current = current.next;
+		}
+		newNode.next = current.next;
+		current.next = newNode;
+		return head;
+	}*/
+	public void sorted(Object data)
+	{
+		Node node = start, newNode = null;
+		if(isEmpty())
+		{
+			addAtFirst(data);
+		}
+		Node current = start;
+		while(current.next != null && current.next.data.hashCode() < newNode.data.hashCode())
+		{
+			current = current.next;
+		}
+		newNode.next = current.next;
+		current.next = newNode;
+	}
 	public void addOrdered(Object data)
 	{
 		Node node = start, tempNode;
@@ -295,5 +327,18 @@ public class UnOrderLinkedList
 				tempNode = tempNode.next;
 			}
 		}
+	}
+	public static void main(String[] args) 
+	{
+		UnOrderLinkedList l = new UnOrderLinkedList();
+		l.append(5);
+		l.append(4);
+		l.append(6);
+		l.display();
+		System.out.println();
+		l.sorted(8);
+		l.sorted(7);
+		l.sorted(9);
+		l.display();
 	}
 }
