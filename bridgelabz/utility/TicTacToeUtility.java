@@ -65,7 +65,7 @@ public class TicTacToeUtility
 	}
 	
 	/**
-	 * method to diaplay winner.
+	 * method to display winner.
 	 * @return : return false for winning commuter as well as user, otherwise return true.
 	 */
 	public boolean displayWinner()

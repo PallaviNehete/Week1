@@ -46,6 +46,11 @@ public class CalendarQueue
 			queueDate.enqueue(i);
 		}
 	}
+	
+	public void setCalendar()
+	{
+		
+	}
 	public int dayOfWeek(int month, int year) 
 	{
 		int d = 1;

@@ -9,7 +9,7 @@
 package com.bridgelabz.datastructure;
 import com.bridgelabz.utility.Utility;
 public class Prime2DArray 
-{
+{			
 	public static void main(String[] args)
 	{
 		Prime2DArray prime = new Prime2DArray();

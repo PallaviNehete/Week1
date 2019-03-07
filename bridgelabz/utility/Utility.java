@@ -559,6 +559,13 @@ public class Utility
 		if(low>high)
 			System.out.println("String not found");
 	}
+	
+	/**
+	 * Method to read from file.
+	 * @param file : file name.
+	 * @return : returns containt of file in string format.
+	 * @throws IOException
+	 */
 	public String readFromFile(File file) throws IOException
 	{
 		String readString="";
@@ -571,29 +578,26 @@ public class Utility
 		}
 		return readString;
 	}
-
-	public void writeIntoFile(int[] store) throws IOException
+	
+	/**
+	 * Method to write String in file without replacing old containt of file.
+	 * @param file : file name.
+	 * @param search : search word is appended in file.
+	 * @throws IOException 
+	 */
+	public void appendFile(File file,String search) throws IOException
 	{
-		FileWriter fileWriter = new FileWriter("/home/admin1/ReadWrite/ordered.txt");
-		for(int i=0; i<store.length-1; i++)
-		{
-			fileWriter.write(store[i]+",");
-		}
-		fileWriter.close();
-	}
-	public void appendFile(Object search) throws IOException
-	{
-		FileWriter fw = null;
-		BufferedWriter bw = null;
-		PrintWriter pw = null;
+		FileWriter fileWriter = null;
+		BufferedWriter bufferWriter = null;
+		PrintWriter printWriter = null;
 		try 
 		{
-			fw = new FileWriter("/home/admin1/ReadWrite/ordered.txt", true);
-			bw = new BufferedWriter(fw);
-			pw = new PrintWriter(bw);
-			pw.println(","+search);
-			System.out.println("Data Successfully appended into file");
-			pw.flush();
+			fileWriter = new FileWriter(file, true);
+			bufferWriter = new BufferedWriter(fileWriter);
+			printWriter = new PrintWriter(bufferWriter);
+			printWriter.println(","+search);
+			System.out.println("\nData Successfully appended into file");
+			printWriter.flush();
 		} 
 		catch (Exception e) 
 		{

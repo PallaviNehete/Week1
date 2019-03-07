@@ -289,7 +289,7 @@ public class UnOrderLinkedList
 	}
 
 	/**
-	 * Removes element from given position and returns element..	
+	 * Removes element from given position and returns element.	
 	 * @param position : position of element which want to pop.
 	 * @return : poped element.
 	 */
@@ -352,7 +352,6 @@ public class UnOrderLinkedList
 	public static void main(String[] args) 
 	{
 		UnOrderLinkedList l = new UnOrderLinkedList();
-		Node new_node;
 		l.append(5);
 		l.append(4);
 		l.append(56);

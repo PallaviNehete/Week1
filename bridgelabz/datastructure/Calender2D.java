@@ -46,7 +46,7 @@ public class Calender2D
 		System.out.println("\n# java Calender "+month+" "+year);
 		System.out.println(months[month-1]+" "+year);
 		int startingDay = dayOfWeek(month, year);
-		setCalender(month, startingDay, year);
+		diaplayCalender(month, startingDay, year);
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class Calender2D
 	 * @param startingDay : starting day of user.
 	 * @param year : year entered by user.
 	 */
-	void setCalender(int month, int startingDay, int year)
+	void diaplayCalender(int month, int startingDay, int year)
 	{
 		System.out.println("\nSun	Mon	Tue	Wed	Thu	Fri	Sat");
 		if(month == 2 && utility.isLeapYear(year))				// set 29 days for February for Leap year. 
@@ -65,13 +65,6 @@ public class Calender2D
 		for(int i=0; i<startingDay; i++)						// spacing for before starting days.
 		{
 			System.out.print("\t");
-		}
-		for(int i=0; i<calendar.length; i++)					// set 2D calendar matrix.
-		{
-			for(int j=0; j<calendar[i].length; j++)
-			{
-				calendar[i][j] = i;
-			}
 		}
 		int day = 0;											
 		for(int i=0; i<calendar.length; i++)					// set calendar according to user input.

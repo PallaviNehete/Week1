@@ -7,13 +7,9 @@
  */
 
 package com.bridgelabz.datastructure;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import com.bridgelabz.utility.Utility;
 public class UnOrederedList 
 {
@@ -23,7 +19,7 @@ public class UnOrederedList
 		UnOrderLinkedList list = new UnOrderLinkedList();
 		UnOrederedList unorder = new UnOrederedList();
 		File file = new File("/home/admin1/Pallavi-workspace/Programs/src/com/bridgelabz/files/unorder.txt");
-		String string = unorder.readFromFile(file);
+		String string = utility.readFromFile(file);
 		System.out.println("Reading from File: "+string);
 		String array[] = string.split(",");
 		for(int i=0; i<array.length; i++)
@@ -39,13 +35,17 @@ public class UnOrederedList
 		{
 			System.out.println("Word not found Hence added into file");
 			list.append(search);
-			unorder.appendFile(file,search); 
+			utility.appendFile(file,search); 
+			System.out.println("From List: ");
 			list.display();
+			String readString = utility.readFromFile(file);
+			System.out.println("\n\nFrom File: "+readString);
 		}
 		else
 		{
 			System.out.println("Word found Hence Deleted from file");
 			list.remove(search);
+			System.out.println("From List: ");
 			list.display();
 			for(int i=0; i<array.length-1; i++)
 			{
@@ -53,28 +53,15 @@ public class UnOrederedList
 			//	System.out.println("Array:  "+i+"\t"+array[i]);
 				unorder.writeIntoFile(file, array);
 			}
-			String s = unorder.readFromFile(file);
-			System.out.println("\nFrom File: "+s);
+			String s = utility.readFromFile(file);
+			System.out.println("\n\nFrom File: "+s);
 		}
 	}
-	// Method for reading String from File.
-	public String readFromFile(File file) throws IOException
-	{
-		String readString="";
-		String temp;
-		FileReader ip = new FileReader(file);
-		BufferedReader br = new BufferedReader(ip);
-		while((temp=br.readLine())!=null)
-		{
-			readString = readString + temp;
-		}
-		return readString;
-	}
-	
+
 	/**
 	 * Method to write in File. 
-	 * old containt of file is replaced with new containt.
-	 * @param file : file name
+	 * old contain of file is replaced with new containt.
+	 * @param file : file name.
 	 * @param array : array elements added into file.
 	 * @throws IOException
 	 */
@@ -86,31 +73,5 @@ public class UnOrederedList
 			filewriter.write(array[i]+",");
 		}
 		filewriter.close();
-	}
-	
-	/**
-	 * Method to write String in file without replacing old containt of file.
-	 * @param file : file name
-	 * @param search : search word is appended in file.
-	 * @throws IOException 
-	 */
-	public void appendFile(File file,String search) throws IOException
-	{
-		FileWriter fileWriter = null;
-		BufferedWriter bufferWriter = null;
-		PrintWriter printWriter = null;
-		try 
-		{
-			fileWriter = new FileWriter(file, true);
-			bufferWriter = new BufferedWriter(fileWriter);
-			printWriter = new PrintWriter(bufferWriter);
-			printWriter.println(","+search);
-			System.out.println("\nData Successfully appended into file");
-			printWriter.flush();
-		} 
-		catch (Exception e) 
-		{
-			e.printStackTrace();
-		}
 	}
 }
