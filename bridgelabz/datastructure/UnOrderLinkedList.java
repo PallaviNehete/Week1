@@ -1,8 +1,9 @@
 package com.bridgelabz.datastructure;
-public class UnOrderLinkedList <T extends Comparable<T>>
+public class UnOrderLinkedList
 {
 	int size;
 	Node start;
+	
 	Node end;
 	/** 
 	 * constructor to declare variables.
@@ -33,7 +34,31 @@ public class UnOrderLinkedList <T extends Comparable<T>>
 	{
 		return size;
 	}
-
+	
+	/**
+	 * Method to get index of given data.
+	 * @param data : data to find position in linked list.
+	 * @return : returns position of data in linked list.
+	 */
+	public int indexOf(Object data)
+	{
+		int index = 0;
+		Node node = start;
+		while(node.next != null)
+		{
+			if(node.getData().hashCode() == data.hashCode())
+			{
+				return index;
+			}
+			index++;
+			node = node.next;
+		}
+		if(search(data))
+			return index+1;
+		else
+			return -1;
+	}
+	
 	/**
 	 * Insert element at First in Linked list.
 	 * @param data : the item which want to added at first position in list.
@@ -82,13 +107,13 @@ public class UnOrderLinkedList <T extends Comparable<T>>
 			append(data);
 		else if(position > 1 && position <= size)
 		{
-			Node n,t;
-			n = new Node(data ,null);
-			t = start;
+			Node node,temp;
+			node = new Node(data ,null);
+			temp = start;
 			for(int i=1; i<position-1; i++)
-				t = t.getNext();
-			n.setNext(t.getNext());
-			t.setNext(n);
+				temp = temp.getNext();
+			node.setNext(temp.getNext());
+			temp.setNext(node);
 			size++;
 		}
 		else
@@ -112,19 +137,17 @@ public class UnOrderLinkedList <T extends Comparable<T>>
 		current.next = newNode;
 		return head;
 	}*/
+	
 	public void sorted(Object data)
 	{
-		Node node = start, newNode = end;
+		Node current = start, newNode = start;
 		if(isEmpty())
-		{
 			addAtFirst(data);
-		}
-		Node current = start;
 		while((current.next != null) && (current.next.data.hashCode() < newNode.data.hashCode()))
 		{
 			current = current.next;
 		}
-		newNode.next = current.next;
+		newNode.next = current;
 		current.next = newNode;
 	}
 	public void addOrdered(Object data)
@@ -303,9 +326,7 @@ public class UnOrderLinkedList <T extends Comparable<T>>
 		while(node != null)
 		{
 			if(node.getData().hashCode() == search.hashCode())
-			{
-				return true;					// element found
-			}
+				return true;					// element found.
 			node = node.next;
 		}
 		return false;							// element not found.
@@ -331,12 +352,18 @@ public class UnOrderLinkedList <T extends Comparable<T>>
 	public static void main(String[] args) 
 	{
 		UnOrderLinkedList l = new UnOrderLinkedList();
+		Node new_node;
 		l.append(5);
 		l.append(4);
+		l.append(56);
 		l.append(6);
+		l.append(10);
+		l.append(15);
 		l.display();
 		System.out.println();
-		l.sorted(3);
+		//l.sorted(6);
+		System.out.println(l.pop(2));
+		
 		l.display();
 	}
 }

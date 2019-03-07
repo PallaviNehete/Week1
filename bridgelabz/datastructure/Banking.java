@@ -35,9 +35,7 @@ public class Banking
 					System.out.println("You deposeted "+deposite+" in Bank");
 				}
 				else
-				{
 					System.out.println("*Please Enter valid Amount");
-				}
 				break;
 			case 2:
 				System.out.print("Enter Amount you want to withdraw: ");
@@ -52,14 +50,10 @@ public class Banking
 						System.out.println("Your current balance is: "+balance);
 					}
 					else
-					{
 						System.out.println("*Your Balance is less than Withdraw Amount");
-					}
 				}
 				else
-				{
 					System.out.println("*Please Enter valid Amount");
-				}
 				break;
 			case 3:
 				queue.countPrint();

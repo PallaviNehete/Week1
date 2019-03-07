@@ -1,15 +1,23 @@
 /**
  * created by: Pallavi Nehete.
  * Date: 22/02/2019.
- * Purpose: Putting Commonly used function in single file
+ * Purpose: Putting Commonly used function in single file.
  */
 
 package com.bridgelabz.utility;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Utility 
 {
 	static Scanner scanner=new Scanner(System.in);
+	
 	/**
 	 * Method to take a Integer Input from user.
 	 * @return : integer value.
@@ -192,9 +200,7 @@ public class Utility
 			number = number/2;
 		}
 		while(binary.length()<4)
-		{
 			binary = 0+binary;
-		}
 		return binary;	
 	}
 	
@@ -251,9 +257,7 @@ public class Utility
 	{
 		long factorial = 1;
 		for(int i=1; i<=number; i++)
-		{
 			factorial = factorial*i;
-		}
 		long absFactorial = Math.abs(factorial);
 		return absFactorial;
 	}
@@ -276,9 +280,7 @@ public class Utility
 				}
 			}
 			if(count == 0)
-			{
 				return number;
-			}
 		}
 		return 0;
 	}
@@ -556,5 +558,46 @@ public class Utility
 		}
 		if(low>high)
 			System.out.println("String not found");
+	}
+	public String readFromFile(File file) throws IOException
+	{
+		String readString="";
+		String temp;
+		FileReader ip = new FileReader(file);
+		BufferedReader br = new BufferedReader(ip);
+		while((temp=br.readLine())!=null)
+		{
+			readString = readString + temp;
+		}
+		return readString;
+	}
+
+	public void writeIntoFile(int[] store) throws IOException
+	{
+		FileWriter fileWriter = new FileWriter("/home/admin1/ReadWrite/ordered.txt");
+		for(int i=0; i<store.length-1; i++)
+		{
+			fileWriter.write(store[i]+",");
+		}
+		fileWriter.close();
+	}
+	public void appendFile(Object search) throws IOException
+	{
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		PrintWriter pw = null;
+		try 
+		{
+			fw = new FileWriter("/home/admin1/ReadWrite/ordered.txt", true);
+			bw = new BufferedWriter(fw);
+			pw = new PrintWriter(bw);
+			pw.println(","+search);
+			System.out.println("Data Successfully appended into file");
+			pw.flush();
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
 	}
 }

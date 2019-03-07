@@ -9,6 +9,7 @@ package com.bridgelabz.algorithms;
 import com.bridgelabz.utility.Utility;
 public class VendingMachine
 {
+	static int notes[] = {1000,500,100,50,10,5,2,1}; 
 	public static void main(String[] args) 
 	{
 		Utility utility = new Utility();
@@ -20,7 +21,7 @@ public class VendingMachine
 		{ 
 			if (totalNotes[i] > 0) 
 			{
-				System.out.println(totalNotes[i]+" notes of "+totalNotes[i]); 
+				System.out.println(totalNotes[i]+" notes of "+notes[i]); 
 				noOfNotes = noOfNotes + totalNotes[i];
 			}
 		}
@@ -34,7 +35,6 @@ public class VendingMachine
 	 */
 	public static int[] countNotes(int amount)
 	{
-		int notes[] = {1000,500,100,50,10,5,2,1}; 
 		int countNotes[] = new int[9]; 
 		for (int i=0; i<notes.length; i++)
 		{ 
