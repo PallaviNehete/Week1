@@ -35,7 +35,7 @@ public class Banking
 					System.out.println("You deposeted "+deposite+" in Bank");
 				}
 				else
-					System.out.println("*Please Enter valid Amount");
+					System.out.println("\n*Please Enter valid Amount.");
 				break;
 			case 2:
 				System.out.print("Enter Amount you want to withdraw: ");
@@ -44,30 +44,34 @@ public class Banking
 				{
 					if(deposite >= withdraw)
 					{
-						queue.Dequeue(withdraw);
+						queue.Dequeue();
 						System.out.println("You withdraw "+withdraw+" from Bank");
 						balance = deposite-withdraw;
 						System.out.println("Your current balance is: "+balance);
 					}
 					else
-						System.out.println("*Your Balance is less than Withdraw Amount");
+						System.out.println("\n*Your Balance is less than Withdraw Amount");
 				}
 				else
-					System.out.println("*Please Enter valid Amount");
+					System.out.println("\n*Please Enter valid Amount.");
 				break;
 			case 3:
-				queue.countPrint();
+				int count = queue.count();
+				if(count > 0)
+					System.out.println(count+" Peoples are in queue.");
+				else
+					System.out.println("Queue is empty.");
 				break;
 			case 4:
-				System.out.println("EXIT");
+				System.out.println("\nEXIT");
 				System.exit(0);
 				break;
 			default:
-				System.out.println("\n*Please Enter Valid Choice");
+				System.out.println("\n*Please Enter Valid Choice.");
 				break;
 			}
 			System.out.println("\n*Do you want to continue? ");
-			System.out.println("(type yes if you want to continue)");
+			System.out.println("(type yes if you want to continue otherwise press any key to exit)");
 			check = utility.inputString();
 			System.out.println("\n============================================");
 		}

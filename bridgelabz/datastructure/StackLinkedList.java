@@ -1,4 +1,8 @@
-// LIFO.
+/**
+ * created by: Pallavi Nehete.
+ * Date: 05/03/2019.
+ * Purpose: To create Linked list using stack. (LIFO)
+ */
 
 package com.bridgelabz.datastructure;
 public class StackLinkedList 

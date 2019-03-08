@@ -23,7 +23,7 @@ public class PalindromeChecker
 	
 	/**
 	 * method to check string is palindrome or not using dequeue.
-	 * @param input : input string to check whether it is Palindrome or not.
+	 * @param input : input string to check whether it is palindrome or not.
 	 * @return : return true if string is palindrome otherwise gives false.
 	 */
 	public boolean checkPalindrome(String input)

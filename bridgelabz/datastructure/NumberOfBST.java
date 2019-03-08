@@ -26,7 +26,7 @@ public class NumberOfBST
 		System.out.println("\nNumber of binary search tree for given nodes is as follows: \n");
 		for(int i=0; i<noOfBinaryTree.length; i++)
 		{
-			System.out.println("Number of Binary Search tree for node "+(i+1)+" is: "+noOfBinaryTree[i]);
+			System.out.println("Number of Binary Search tree for node "+nodes[i]+" is: "+noOfBinaryTree[i]);
 		}
 	}
 	

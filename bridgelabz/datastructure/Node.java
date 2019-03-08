@@ -1,3 +1,9 @@
+/**
+ * created by: Pallavi Nehete.
+ * Date: 28/02/2019.
+ * Purpose: To make a Node. 
+ */
+
 package com.bridgelabz.datastructure;
 public class Node 
 {

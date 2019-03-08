@@ -1,3 +1,9 @@
+/**
+ * created by: Pallavi Nehete.
+ * Date: 08/03/2019.
+ * Purpose: Takes the month & year as a input from user and print the Calendar of the month using Queue.
+ */
+
 package com.bridgelabz.datastructure;
 import com.bridgelabz.utility.Utility;
 public class CalendarQueue 
@@ -5,12 +11,11 @@ public class CalendarQueue
 	static Utility utility = new Utility();
 	QueueLinkedList queueDay = new QueueLinkedList();
 	QueueLinkedList queueDate = new QueueLinkedList();
-	int calendar[][] = new int[6][7];
 	int days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	String months[]={"January","February","March","April","May","June","July","August","September","October","November","December"};
 	public static void main(String[] args) 
 	{
-		Calender2D calender = new Calender2D();
+		CalendarQueue calender = new CalendarQueue();
 		int month = 0, year = 0;
 		do 
 		{
@@ -22,7 +27,7 @@ public class CalendarQueue
 				year = utility.inputInteger();
 				if(year>999 && year<9999)
 				{
-					calender.dispCalender(month, year);
+					calender.displayCalendar(month, year);
 				}
 				else
 					System.out.println("*Please Enter valid Year");
@@ -32,6 +37,9 @@ public class CalendarQueue
 		}while((month<=0) || (month>12) || (year<=999) || (year>9999));
 	}
 	
+	/**
+	 * Method to initialize Dates and Days in Queue. 
+	 */
 	public void setDueueDayDate()
 	{
 		queueDay.enqueue("Sun");
@@ -45,20 +53,55 @@ public class CalendarQueue
 		{
 			queueDate.enqueue(i);
 		}
+		queueDay.display();
 	}
 	
-	public void setCalendar()
+	/**
+	 * Method to display Calendar.
+	 * @param month : Month entered by user.
+	 * @param year : Year entered by user.
+	 */
+	public void displayCalendar(int month, int year)
 	{
-		
-	}
-	public int dayOfWeek(int month, int year) 
-	{
-		int d = 1;
-		int y0 = year - (14 - month) / 12;
-		int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
-		int m0 = month + 12 * ((14 - month) / 12) - 2;
-		int d0 = (d + x + (31 * m0) / 12) % 7;
-		return d0;
+		System.out.println("\n# java Calender "+month+" "+year);
+		System.out.println(months[month-1]+" "+year+"\n");
+		setDueueDayDate();
+		int startingDay = utility.dayOfWeek(month, year);
+		setCalendar(month, startingDay, year);
 	}
 	
+	/**
+	 * Method to set Calendar according to user input.
+	 * @param month : Month entered by user.
+	 * @param startingDay : Starting day of Month.
+	 * @param year : Year entered by user.
+	 */
+	public void setCalendar(int month, int startingDay, int year)
+	{
+		System.out.println();
+		if(month == 2 && utility.isLeapYear(year))				// set 29 days for February for Leap year. 
+		{	
+			days[1] = 29;
+		}
+		for(int i=0; i<startingDay; i++)						// spacing for before starting days.
+		{
+			System.out.print("\t");
+		}
+		int day = 0;
+		for(int i=0; i<queueDay.getListSize(); i++)
+		{
+			for(int j=0; j<queueDate.getListSize(); j++)
+			{
+				if(days[month-1] != day)
+				{
+					if((j+startingDay) % 7 == 0)
+					{
+						System.out.println();
+					}
+					System.out.print(queueDate.getObject(day)+"\t");
+					day++;
+				}	
+			}
+		}
+	}
 }

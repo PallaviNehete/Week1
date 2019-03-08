@@ -1,3 +1,8 @@
+/**
+ * created by: Pallavi Nehete.
+ * Date: 05/03/2019.
+ * Purpose: To create Linked list using Queue. (FIFO)
+ */
 
 package com.bridgelabz.datastructure;
 public class QueueLinkedList 
@@ -56,7 +61,9 @@ public class QueueLinkedList
 		size++;
 	}
 	
-	// removeFromFirst
+	/**
+	 * method to Remove First element from Queue.
+	 */
 	public void dequeue()
 	{
 		if(start == null)
@@ -89,6 +96,29 @@ public class QueueLinkedList
 		return (int)node.data;
 	}
 	
+	/**
+	 * method to display all elements of an Linked list. 
+	 */
+	public void display()
+	{
+		if(isEmpty())
+			System.out.println("List is Empty");
+		else
+		{
+			Node tempNode = start;
+			while(tempNode!= null) 
+			{
+				System.out.print(tempNode.data+"\t");
+				tempNode = tempNode.next;
+			}
+		}
+	}
+	
+	/**
+	 * Method to get a data of given position. 
+	 * @param position : position.
+	 * @return : returns data of given position.
+	 */
 	public Object getObject(int position)
 	{
 		int index = 0;
@@ -103,45 +133,5 @@ public class QueueLinkedList
 			index++;
 		}
 		return node.data;
-	}
-	/**
-	 * method to display all elements of an Linked list. 
-	 */
-	public void display()
-	{
-		if(isEmpty())
-			System.out.println("List is Empty");
-		else
-		{
-			Node tempNode = start;
-			while(tempNode!= null) 
-			{
-				System.out.print(tempNode.data+" ");
-				tempNode = tempNode.next;
-			}
-		}
-	}
-	public static void main(String[] args) 
-	{
-		QueueLinkedList q = new QueueLinkedList();
-		/*q.enqueue("l");
-		q.enqueue("g");
-		q.enqueue("k");
-		q.enqueue("p");
-		q.display();
-		System.out.println();
-		System.out.println(q.getObject(2));*/
-		q.enqueue(5);
-		q.enqueue(8);
-		q.enqueue(7);
-		q.enqueue(10);
-		q.enqueue(14);
-		q.enqueue(15);
-		q.display();
-		System.out.println();
-		System.out.println(q.get(2));
-	//	q.dequeue();
-		System.out.println();
-		q.display();
 	}
 }

@@ -1,10 +1,15 @@
+/**
+ * created by: Pallavi Nehete.
+ * Date: 28/02/2019.
+ * Purpose: To make a Linked List.
+ */
+
 package com.bridgelabz.datastructure;
 public class UnOrderLinkedList
 {
 	int size;
 	Node start;
-	
-	Node end;
+
 	/** 
 	 * constructor to declare variables.
 	 */
@@ -13,7 +18,7 @@ public class UnOrderLinkedList
 		size = 0;
 		start = null;
 	}
-	
+
 	/**
 	 * checks Linked is Empty or not.
 	 * @return : returns true if list is empty otherwise returns false.
@@ -25,7 +30,7 @@ public class UnOrderLinkedList
 		else
 			return false;
 	}
-	
+
 	/**
 	 * gives size of an list.
 	 * @return : size of list.
@@ -34,7 +39,7 @@ public class UnOrderLinkedList
 	{
 		return size;
 	}
-	
+
 	/**
 	 * Method to get index of given data.
 	 * @param data : data to find position in linked list.
@@ -58,7 +63,7 @@ public class UnOrderLinkedList
 		else
 			return -1;
 	}
-	
+
 	/**
 	 * Insert element at First in Linked list.
 	 * @param data : the item which want to added at first position in list.
@@ -119,54 +124,28 @@ public class UnOrderLinkedList
 		else
 			System.out.println("Insertion not possible at position "+position);
 	}
-	/*public static Node SortedInsert(Node head, Node newNode)
+
+	/**
+	 * Method to sort elements. 
+	 * @param array : array which want to sort.
+	 * @return : returns sorted array.
+	 */
+	public int[] sort(int [] array)
 	{
-		// Special case for the head end
-		if (head == null || head.data >= newNode.data)
+		int size = array.length;
+		for(int i=0; i<size; i++)
 		{
-			newNode.next = head;
-			head = newNode;
-			return head;
-		}
-		// Locate the node before the point of insertion
-		Node current = head;
-		while (current.next != null && current.next.data < newNode.data) {
-			current = current.next;
-		}
-		newNode.next = current.next;
-		current.next = newNode;
-		return head;
-	}*/
-	
-	public void sorted(Object data)
-	{
-		Node current = start, newNode = start;
-		if(isEmpty())
-			addAtFirst(data);
-		while((current.next != null) && (current.next.data.hashCode() < newNode.data.hashCode()))
-		{
-			current = current.next;
-		}
-		newNode.next = current;
-		current.next = newNode;
-	}
-	public void addOrdered(Object data)
-	{
-		Node node = start, tempNode = null;
-		size++;
-		if(isEmpty())
-		{
-			addAtFirst(data);
-		}
-		else
-		{
-			if(node.getData().hashCode() < data.hashCode())
+			for(int j=1; j<size; j++)
 			{
-				tempNode.next = start;
-				start = tempNode;
-			
+				if(array[j-1]>array[j])
+				{
+					int temp = array[j-1];
+					array[j-1] = array[j];
+					array[j] = temp;
+				}
 			}
 		}
+		return array;
 	}
 	
 	/**
@@ -331,7 +310,7 @@ public class UnOrderLinkedList
 		}
 		return false;							// element not found.
 	}
-	
+
 	/**
 	 * method to display all elements of an Linked list. 
 	 */
@@ -348,21 +327,5 @@ public class UnOrderLinkedList
 				tempNode = tempNode.next;
 			}
 		}
-	}
-	public static void main(String[] args) 
-	{
-		UnOrderLinkedList l = new UnOrderLinkedList();
-		l.append(5);
-		l.append(4);
-		l.append(56);
-		l.append(6);
-		l.append(10);
-		l.append(15);
-		l.display();
-		System.out.println();
-		//l.sorted(6);
-		System.out.println(l.pop(2));
-		
-		l.display();
 	}
 }

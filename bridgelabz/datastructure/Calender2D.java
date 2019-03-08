@@ -1,7 +1,7 @@
 /**
  * created by: Pallavi Nehete.
  * Date: 04/03/2019.
- * Purpose: Takes the month and year as a input from user and prints the Calendar of the month.
+ * Purpose: Takes the month & year as a input from user and print the Calendar of the month using 2D array.
  */
 
 package com.bridgelabz.datastructure;
@@ -26,7 +26,7 @@ public class Calender2D
 				year = utility.inputInteger();
 				if(year>999 && year<9999)
 				{
-					calender.dispCalender(month, year);
+					calender.dispCalendar(month, year);
 				}
 				else
 					System.out.println("*Please Enter valid Year");
@@ -41,12 +41,12 @@ public class Calender2D
 	 * @param month : month entered by user.
 	 * @param year : year entered by user.
 	 */
-	void dispCalender(int month, int year) 
+	void dispCalendar(int month, int year) 
 	{
 		System.out.println("\n# java Calender "+month+" "+year);
 		System.out.println(months[month-1]+" "+year);
-		int startingDay = dayOfWeek(month, year);
-		diaplayCalender(month, startingDay, year);
+		int startingDay = utility.dayOfWeek(month, year);
+		displayCalendar(month, startingDay, year);
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class Calender2D
 	 * @param startingDay : starting day of user.
 	 * @param year : year entered by user.
 	 */
-	void diaplayCalender(int month, int startingDay, int year)
+	void displayCalendar(int month, int startingDay, int year)
 	{
 		System.out.println("\nSun	Mon	Tue	Wed	Thu	Fri	Sat");
 		if(month == 2 && utility.isLeapYear(year))				// set 29 days for February for Leap year. 
@@ -75,7 +75,7 @@ public class Calender2D
 				{
 					day++;
 					calendar[i][j] = day;
-					if((j+startingDay) % 7 == 0)
+					if((j+startingDay) % 7 == 0)				// to print next line.
 					{
 						System.out.println();
 					}
@@ -88,21 +88,5 @@ public class Calender2D
 				}
 			}
 		}
-	}
-	
-	/**
-	 * method to find starting day of month.
-	 * @param month : month entered by user.
-	 * @param year : year entered by user.
-	 * @return : returns starting date of month.
-	 */
-	public int dayOfWeek(int month, int year) 
-	{
-		int d = 1;
-		int y0 = year - (14 - month) / 12;
-		int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
-		int m0 = month + 12 * ((14 - month) / 12) - 2;
-		int d0 = (d + x + (31 * m0) / 12) % 7;
-		return d0;
 	}
 }

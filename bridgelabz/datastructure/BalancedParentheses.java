@@ -1,9 +1,8 @@
 /**
  * created by: Pallavi Nehete.
  * Date: 27/02/2019.
- * Purpose: Take an Arithmetic Expression as an input
- * where parentheses are used to order the performance of operations.
- * Ensure parentheses must appear in a balanced fashion.
+ * Purpose: Take an Arithmetic Expression as an input where parentheses are used to order the performance of operations.
+ * 			Ensure parentheses must appear in a balanced fashion.
  */
 
 package com.bridgelabz.datastructure;
@@ -13,13 +12,11 @@ public class BalancedParentheses
 	public static void main(String[] args) 
 	{
 		Utility utility = new Utility();
-		System.out.print("Enter Maximum Size: ");
-		int size = utility.inputInteger();
-		BalancedParenthStack stack = new BalancedParenthStack(size); 
-		int push = 0, pop = 0;
-		System.out.println("Enter the Expression: ");
+		System.out.print("Enter the Expression: ");
 		String expression = utility.inputString();
-		for(int i = 0; i < expression.length(); i++)
+		BalancedParenthStack stack = new BalancedParenthStack(expression.length()); 
+		int push = 0, pop = 0;
+		for(int i=0; i<expression.length(); i++)
 		{
 			char character = expression.charAt(i);
 			if(character =='(')
@@ -30,7 +27,6 @@ public class BalancedParentheses
 			}
 			else if(character ==')')
 			{
-				int p = stack.pop()+1;
 				System.out.println("')' poped at index "+i);
 				pop++;
 			}

@@ -1,3 +1,9 @@
+/**
+ * created by: Pallavi Nehete.
+ * Date: 08/03/2019.
+ * Purpose: Read a List of Numbers from a file and arrange it ascending Order in a Linked List.
+ * 			Take user input for a number, if found then pop number out of list else insert number at appropriate position
+ */
 
 package com.bridgelabz.datastructure;
 import java.io.File;
@@ -9,76 +15,80 @@ public class OrderedList
 	public static void main(String[] args) throws IOException 
 	{
 		Utility utility = new Utility();
-		OrderedList ol = new OrderedList();
-		UnOrderLinkedList list = new UnOrderLinkedList();
-		File file = new File("/home/admin1/ReadWrite/ordered.txt");
+		OrderedList orderedList = new OrderedList();
+		UnOrderLinkedList linkedlist = new UnOrderLinkedList();
+		File file = new File("/home/admin1/Pallavi-workspace/Programs/src/com/bridgelabz/files/ordered.txt");
 		String string =  utility.readFromFile(file);
 		System.out.print("Reading from File: "+string+"\n");
-		String splitArr[] = string.split(",");
-		int newArr[] = new int[splitArr.length];
-		System.out.println("lenght:   "+splitArr.length);
-		for(int i=0; i<splitArr.length;i++)
+		String splitArray[] = string.split(",");
+		int intArray[] = new int[splitArray.length];
+		//System.out.println("lenght:\t"+splitArray.length);
+		for(int i=0; i<splitArray.length;i++)
 		{
-			String temp = splitArr[i];
-			newArr[i] = Integer.parseInt(temp); 
+			String temp = splitArray[i];
+			intArray[i] = Integer.parseInt(temp); 
 		}
-		utility.insertionSortInt(newArr);
-		for(int i=0; i<newArr.length; i++)
+		utility.insertionSortInt(intArray);
+		for(int i=0; i<intArray.length; i++)
 		{
-			list.append(newArr[i]);
+			linkedlist.append(intArray[i]);
 		}
 		System.out.print("\nFrom List: ");
-		list.display();	
+		linkedlist.display();	
 		System.out.print("\n\nEnter Number: ");
 		int search = utility.inputInteger();
-		boolean flag = list.search(search);
+		boolean flag = linkedlist.search(search);
 		if(flag)
 		{
-			System.out.println("found");
-			int index = list.indexOf(search);
-			System.out.println(index+1);
-			list.deleteAtPos(index+1);
-			System.out.println("Found hence deleted\n");
-			System.out.println("From List: ");
-			list.display();
-			int size = list.getListSize();
-			int store[] = new int[size];
-			for(int i=0; i<size; i++)
+			System.out.println("\n"+search+" Found hence deleted");
+			int index = linkedlist.indexOf(search);
+			//System.out.println(index+1);
+			linkedlist.deleteAtPos(index+1);
+			System.out.print("From List: ");
+			linkedlist.display();
+			int size1 = linkedlist.getListSize();
+			int storeArray[] = new int[size1];
+			for(int i=0; i<size1; i++)
 			{
-				store[i] = (int)list.pop(0);
+			//	System.out.println(list.pop(0));
+				storeArray[i] = (int)linkedlist.pop(0);
+				orderedList.writeIntoFile(file, storeArray);
 			}
-			ol.writeIntoFile(store);
-			String s = utility.readFromFile(file);
-			System.out.println("\n\nFrom File: "+s);
+			String readFile = utility.readFromFile(file);
+			System.out.println("\nFrom File: "+readFile);
 		}
 		else
 		{
-			System.out.println("Not Found hence added");	
-			list.append(search);
-			list.display();
-			System.out.println();
-			int store[] = new int[splitArr.length-1];
-			for(int i=0; i<splitArr.length-1; i++)
+			System.out.println("\n"+search+" Not Found hence added");
+			linkedlist.append(search);
+			System.out.print("From List: ");
+			linkedlist.display();
+			int size2 = linkedlist.getListSize();
+			int storeArray[] = new int[size2];
+			for(int i=0; i<size2; i++)
 			{
-				store[i] = (int) list.pop(i);
+				storeArray[i] = (int)linkedlist.pop(0);
 			}
-			ol.writeIntoFile(store);
-			String s = utility.readFromFile(file);
-			System.out.println("From File: "+s);
+			linkedlist.sort(storeArray);
+			orderedList.writeIntoFile(file, storeArray);
+			String readFile = utility.readFromFile(file);
+			System.out.println("\nFrom File: "+readFile);
 		}
 	}
 	
 	/**
-	 * Method to write into file.
-	 * @param store : array of elements which want to added in file.
+	 * Method to write in File. 
+	 * old data of file is replaced with new data.
+	 * @param file : file name.
+	 * @param array : array elements added into file.
 	 * @throws IOException
 	 */
-	public void writeIntoFile(int[] store) throws IOException
+	public void writeIntoFile(File file,int array[]) throws IOException
 	{
-		FileWriter fileWriter = new FileWriter("/home/admin1/ReadWrite/ordered.txt");
-		for(int i=0; i<store.length; i++)
+		FileWriter fileWriter = new FileWriter(file);
+		for(int i=0; i<array.length;i++)
 		{
-			fileWriter.write(store[i]+",");
+			fileWriter.write(array[i]+",");
 		}
 		fileWriter.close();
 	}

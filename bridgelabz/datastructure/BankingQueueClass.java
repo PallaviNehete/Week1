@@ -1,3 +1,8 @@
+/**
+ * created by: Pallavi Nehete.
+ * Date: 27/02/2019.
+ * Purpose: To make a Queue using array. 
+ */
 
 package com.bridgelabz.datastructure;
 public class BankingQueueClass 
@@ -6,15 +11,20 @@ public class BankingQueueClass
 	int queue[] = new int[maxSize];
 	int front, rear;
 
-	// Constructor is to set front and rear as -1. 
-	// We are assuming that for an empty Queue, both front and rear will be -1.
+	/**
+	 * Constructor to initialize variables.
+	 */
 	public BankingQueueClass() 
 	{
 		front = -1; 
 		rear = -1;
 	}
-	// To check wheter Queue is empty or not
-	boolean IsEmpty()
+
+	/**
+	 * Method to check whether Queue is empty or not.
+	 * @return : return true if Queue is empty otherwise gives false.
+	 */
+	public boolean IsEmpty()
 	{
 		if(front == -1 && rear == -1)
 			return true;
@@ -22,15 +32,23 @@ public class BankingQueueClass
 			return false;
 	}
 
-	// To check whether Queue is full or not
-	boolean IsFull()
+	/**
+	 * Method to check whether Queue is full or not.
+	 * @return : return true if Queue is full otherwise gives false.
+	 */
+	public boolean IsFull()
 	{
 		if((rear+1)% maxSize == front)
 			return true;
 		else
 			return false;
 	}
-	void Enqueue(int e)
+
+	/**
+	 * Method to add an element at rear.
+	 * @param element : element which want to add in Queue.
+	 */
+	public void Enqueue(int element)
 	{
 		if(IsFull())
 		{
@@ -44,10 +62,13 @@ public class BankingQueueClass
 		{
 			rear = (rear+1) % maxSize;
 		}
-		queue[rear] = e;
+		queue[rear] = element;
 	}
-	// Removes an element in Queue from front end. 
-	void Dequeue(int d)
+
+	/**
+	 * Method to remove an element from front end.
+	 */
+	public void Dequeue()
 	{
 		if(IsEmpty())
 		{
@@ -62,14 +83,15 @@ public class BankingQueueClass
 			front = (front+1) % maxSize;
 		}
 	}
-	void countPrint()
+
+	/**
+	 * Method to count elements of a Queue.
+	 */
+	public int count()
 	{
+		int count = 0;
 		if(!IsEmpty())
-		{
-			int count = (rear + maxSize - front) % maxSize + 1;
-			System.out.println(count+" Peoples are in queue.");
-		}
-		else
-			System.out.println("Queue is Empty...");
+			count = (rear + maxSize - front) % maxSize + 1;
+		return count;
 	}
 }

@@ -187,6 +187,22 @@ public class Utility
 	}
 	
 	/**
+	 * method to find starting day of month.
+	 * @param month : month entered by user.
+	 * @param year : year entered by user.
+	 * @return : returns starting date of month.
+	 */
+	public int dayOfWeek(int month, int year) 
+	{
+		int d = 1;
+		int y0 = year - (14 - month) / 12;
+		int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
+		int m0 = month + 12 * ((14 - month) / 12) - 2;
+		int d0 = (d + x + (31 * m0) / 12) % 7;
+		return d0;
+	}
+	
+	/**
 	 * To find binary representation of a decimal number.
 	 * @param number : number to find binary representation.
 	 * @return : binary representation of a decimal number.

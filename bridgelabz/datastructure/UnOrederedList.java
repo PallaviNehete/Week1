@@ -60,7 +60,7 @@ public class UnOrederedList
 
 	/**
 	 * Method to write in File. 
-	 * old contain of file is replaced with new containt.
+	 * old data of file is replaced with new data.
 	 * @param file : file name.
 	 * @param array : array elements added into file.
 	 * @throws IOException
