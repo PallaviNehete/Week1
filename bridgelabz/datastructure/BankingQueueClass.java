@@ -51,17 +51,11 @@ public class BankingQueueClass
 	public void Enqueue(int element)
 	{
 		if(IsFull())
-		{
 			System.out.println("Queue is Full");
-		}
 		if(IsEmpty())
-		{
 			front = rear = 0;
-		}
 		else
-		{
 			rear = (rear+1) % maxSize;
-		}
 		queue[rear] = element;
 	}
 
@@ -71,17 +65,11 @@ public class BankingQueueClass
 	public void Dequeue()
 	{
 		if(IsEmpty())
-		{
 			System.out.println("Queue is Empty");
-		}
 		else if(front == rear)				// Queue has only 1 element
-		{
 			front = rear = -1;				// Queue is empty
-		}
 		else
-		{
 			front = (front+1) % maxSize;
-		}
 	}
 
 	/**
@@ -93,5 +81,18 @@ public class BankingQueueClass
 		if(!IsEmpty())
 			count = (rear + maxSize - front) % maxSize + 1;
 		return count;
+	}
+	
+	public static void main(String[] args) 
+	{
+		BankingQueueClass b = new BankingQueueClass();
+		System.out.println(b.IsEmpty());
+		System.out.println(b.IsFull());
+		b.Enqueue(5);
+		b.Enqueue(4);
+		b.Enqueue(9);
+		System.out.println(b.count());
+		b.Dequeue();
+		System.out.println(b.count());
 	}
 }

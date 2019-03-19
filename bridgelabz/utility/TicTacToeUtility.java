@@ -83,7 +83,7 @@ public class TicTacToeUtility
 			System.out.println("\n*Do you want to play Again?");
 			System.out.println("(Type yes if you want to play)");
 			check = utility.inputString();
-			if(check!= "no")
+			if(check.equals("yes"))
 			{
 				play();
 			}

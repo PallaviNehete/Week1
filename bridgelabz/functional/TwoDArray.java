@@ -48,6 +48,7 @@ public class TwoDArray
 			{
 				System.out.print(matrix[i][j]+" ");
 			}
+			System.out.println();
 		}
 	}
 	
@@ -63,9 +64,8 @@ public class TwoDArray
 		{
 			for(int j=0; j<column; j++)
 			{
-
 				System.out.print("Row ["+i+"] column ["+j+"] ");
-				matrix [i][j] = utility.inputInteger();
+				matrix [i][j] = utility.inputDouble();
 			}
 		}
 		System.out.println("\nYour 2D Array of integer of "+row+" rows "+"and "+column+" is: ");
@@ -75,6 +75,7 @@ public class TwoDArray
 			{
 				System.out.print(matrix[i][j]+" ");
 			}
+			System.out.println();
 		}
 	}
 	
@@ -102,6 +103,7 @@ public class TwoDArray
 			{
 				System.out.print(matrix[i][j]+" ");
 			}
+			System.out.println();
 		}
 	}
 }

@@ -32,7 +32,7 @@ public class PowOfTwo
 			}
 			else
 			{
-				for(int i=0; i<=number; i++)
+				for(int i=1; i<=number; i++)
 				{
 					power= power*2;
 					System.out.println("2 to the power "+i+" is: "+power);

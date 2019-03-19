@@ -128,8 +128,6 @@ public class Utility
 				number = number/i;	
 			}
 		}
-		if(number>2)
-			return number;
 		return 0;
 	}
 
@@ -347,7 +345,7 @@ public class Utility
 		for(int j=2; j<=1000; j++) 
 		{
 			check = true;
-			for (int i=2; i<j/2; i++)
+			for (int i=2; i<j; i++)
 			{
 				if (j%i == 0) 
 				{

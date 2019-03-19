@@ -328,4 +328,12 @@ public class UnOrderLinkedList
 			}
 		}
 	}
+public static void main(String[] args) {
+
+	UnOrderLinkedList u =new UnOrderLinkedList();
+	u.append(59);
+
+	
 }
+}
+

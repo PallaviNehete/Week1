@@ -33,7 +33,7 @@ public class PalindromeDequeClass
 	}
 	
 	/**
-	 * checks Linked is Empty or not.
+	 * checks dequeue is Empty or not.
 	 * @return : returns true if list is empty otherwise returns false.
 	 */
 	public boolean isEmpty()
@@ -105,7 +105,6 @@ public class PalindromeDequeClass
 			front = front + 1;
 		}
 		return temp;
-		
 	}
 	
 	/**
